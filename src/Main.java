@@ -45,4 +45,8 @@ public class Main {
       System.out.println(line);
     }
   }
+
+  public static void remove(Scanner sc) {
+
+  }
 }
