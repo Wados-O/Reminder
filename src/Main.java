@@ -15,11 +15,13 @@ public class Main {
 
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
+
     while (true) {
       System.out.println("Добро пожаловать в программу ");
       System.out.println("""
           1.Распечатать список из файла 
-          2.Выход из программы 
+          2.Добавить новую задачу
+          3.Выход из программы 
           """);
       int choice = sc.nextInt();
       switch (choice) {
@@ -27,6 +29,9 @@ public class Main {
           taskToPrint(sc);
           break;
         case 2:
+          addTask(sc);
+          break;
+        case 3:
           System.out.println("До свидание!!!");
           System.exit(0);
       }
@@ -47,6 +52,16 @@ public class Main {
   }
 
   public static void remove(Scanner sc) {
+
+  }
+
+  public static void addTask(Scanner sc) {
+
+    System.out.print("Введите название: ");
+    String name = sc.nextLine();
+    sc.nextLine();
+    System.out.print("Введите дату и время: ");
+    String date = sc.nextLine();
 
   }
 }
