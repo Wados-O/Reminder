@@ -55,13 +55,15 @@ public class Main {
 
   }
 
-  public static void addTask(Scanner sc) {
-
+  public static void addTask(Scanner sc) throws IOException{
+    taskToPrint(sc);
     System.out.print("Введите название: ");
     String name = sc.nextLine();
     sc.nextLine();
     System.out.print("Введите дату и время: ");
     String date = sc.nextLine();
-
+    FileWriter fileWriter = new FileWriter("res/tasks.txt", true);
+    fileWriter.write(name);
+    fileWriter.close();
   }
 }

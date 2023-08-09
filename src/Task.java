@@ -23,4 +23,16 @@ public class Task {
   public LocalDateTime getExpiredDate() {
     return expiredDate;
   }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public void setExpiredDate(LocalDateTime expiredDate) {
+    this.expiredDate = expiredDate;
+  }
 }
