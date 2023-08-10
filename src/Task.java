@@ -2,18 +2,33 @@ import java.time.LocalDateTime;
 
 public class Task {
 
-  private String name;
-  private String message;
-  private LocalDateTime expiredDate;
+  private int count = 0;
+  private final int id;
+  private final String title;
+  private final String message;
+  private final LocalDateTime expiredDate;
 
-  public Task(String name, String message, LocalDateTime expiredDate) {
-    this.name = name;
+  public Task(int id, String title, String message, LocalDateTime expiredDate) {
+    this.id = id;
+    this.title = title;
     this.message = message;
     this.expiredDate = expiredDate;
   }
 
-  public String getName() {
-    return name;
+  public int getCount() {
+    return count;
+  }
+
+  public void setCount(int count) {
+    this.count = count;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getTitle() {
+    return title;
   }
 
   public String getMessage() {
@@ -22,17 +37,5 @@ public class Task {
 
   public LocalDateTime getExpiredDate() {
     return expiredDate;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public void setExpiredDate(LocalDateTime expiredDate) {
-    this.expiredDate = expiredDate;
   }
 }
