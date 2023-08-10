@@ -67,6 +67,7 @@ public class Main {
     int numberTask = sc.nextInt();
     int indexTask = numberTask - 1;
     tasks.remove(indexTask);
+    System.out.println();
   }
 
   public static void addTask(Scanner sc) throws IOException{
