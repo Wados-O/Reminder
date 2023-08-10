@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class Main {
 
-  List<Task> tasks = new ArrayList<>();
+  private final List<Task> tasks = new ArrayList<>();
 
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
