@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class Main {
 
-  private final List<Task> tasks = new ArrayList<>();
+  static List<Task> tasks = new ArrayList<>();
 
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
@@ -27,7 +27,8 @@ public class Main {
       System.out.println("""
           1.Распечатать список из файла 
           2.Добавить новую задачу
-          3.Выход из программы 
+          3.Удалить задачу
+          4.Выход из программы 
           """);
       int choice = sc.nextInt();
       switch (choice) {
@@ -38,6 +39,9 @@ public class Main {
           addTask(sc);
           break;
         case 3:
+          remove(sc);
+          break;
+        case 4:
           System.out.println("До свидание!!!");
           System.exit(0);
       }
@@ -58,7 +62,11 @@ public class Main {
   }
 
   public static void remove(Scanner sc) {
-    System.out.print("Введите задачу, которую хотите удалить: ");
+    System.out.print("Введите номер задачи, которую хотите удалить: ");
+    printNumberedList();
+    int numberTask = sc.nextInt();
+    int indexTask = numberTask - 1;
+    tasks.remove(indexTask);
   }
 
   public static void addTask(Scanner sc) throws IOException{
@@ -71,5 +79,12 @@ public class Main {
     FileWriter fileWriter = new FileWriter("res/tasks.txt", true);
     fileWriter.write(name);
     fileWriter.close();
+  }
+
+  public static void printNumberedList() {
+    for (int i = 0; i < tasks.size(); i++) {
+      int index = i + 1;
+      System.out.println(index + ". " + tasks.get(i));
+    }
   }
 }
