@@ -7,14 +7,18 @@ import java.util.Scanner;
 
 public class Input {
 
-  private static String ourFile = "res/tasks.txt";
+  private static String ourFile = "res/tasks.csv";
   protected static List<Task> arrayList = new ArrayList<>();
+  private static final String SEP = ";;;";
 
-  public static void readTaskFromFile(List<Task> tasks, Scanner scanner) throws IOException {
+  public static void readTaskFromFile(Scanner scanner) throws IOException {
   scanner = new Scanner(new File(ourFile));
 
   while (scanner.hasNextLine()) {
     String line = scanner.nextLine();
+    String[] cells = line.split(SEP);
+    int id = cells[0];
+
     arrayList.add(line);
     System.out.println(line);
   }

@@ -10,8 +10,7 @@ public class Task {
   private final Priority priority;
   private final LocalDateTime expiredDate;
 
-  public Task(int id, Priority priority, Category category, String title, String message, LocalDateTime expiredDate) {
-    this.id = id;
+  public Task(Priority priority, Category category, String title, String message, LocalDateTime expiredDate) {
     this.category = category;
     this.title = title;
     this.message = message;

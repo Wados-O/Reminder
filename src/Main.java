@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class Main {
 
-  static List<Task> tasks = new ArrayList<>();
+  List<Task> tasks = Input.arrayList;
 
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
@@ -48,18 +48,18 @@ public class Main {
     }
   }
 
-  public static void taskToPrint(Scanner sc) throws IOException {
-    sc = new Scanner(System.in);
-    File file = new File("res/tasks.txt");
-    sc = new Scanner(file);
-
-    while (sc.hasNextLine()) {
-      String line = sc.nextLine();
-      // Process the line as needed
-      // Обрабатывайте строку по мере необходимости
-      System.out.println(line);
-    }
-  }
+//  public static void taskToPrint(Scanner sc) throws IOException {
+//    sc = new Scanner(System.in);
+//    File file = new File("res/tasks.txt");
+//    sc = new Scanner(file);
+//
+//    while (sc.hasNextLine()) {
+//      String line = sc.nextLine();
+//      // Process the line as needed
+//      // Обрабатывайте строку по мере необходимости
+//      System.out.println(line);
+//    }
+//  }
 
   public static void remove(Scanner sc) {
     System.out.print("Введите номер задачи, которую хотите удалить: ");
