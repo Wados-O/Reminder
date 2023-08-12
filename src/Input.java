@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,9 @@ public class Input {
 //      Category category = Category.valueOf(cells[1]);
       String tiile = cells[0];
       String message = cells[1];
-      Task task = new Task(tiile, message);
+      Date planeDate = null;
+      Date createdDate = null;
+      Task task = new Task(tiile, message, planeDate, createdDate);
       arrayList.add(task);
 //      System.out.println(task);
     }

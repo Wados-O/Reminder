@@ -1,9 +1,10 @@
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 public class Methods {
 
   private Input input;
@@ -65,10 +66,14 @@ public class Methods {
     String name = sc.nextLine();
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
-    Task task = new Task(name, definition);
-//    tasks.setMessage(definition);
+    System.out.print("Введите дату планируемого выполнения задачи (гггг-мм-дд): ");
+    String planeDateStr = sc.nextLine();
+    Date planeDate = parseDate(planeDateStr);
+
+    Date currentDate = new Date(); // Текущая дата и время
+    Task task = new Task(name, definition, planeDate, currentDate);
     tasks.add(task);
-    System.out.println();
+    System.out.println("Задача добавлена.");
   }
 
   public static void correctingTask(Scanner sc) {
@@ -79,8 +84,33 @@ public class Methods {
   public static List<Task> printNumberedList() {
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
-      System.out.println(index + ". " + tasks.get(i).toString());
+      Task task = tasks.get(i);
+      String dateString = task.getPlaneDate() != null ? formatDate(task.getPlaneDate()) : "Без даты";
+      System.out.println(index + ". " + tasks.get(i).toString()  + " - " + dateString);
     }
     return new ArrayList<>();
+  }
+
+  public static Date parseDate(String dateStr) {
+    SimpleDateFormat dateFormatDash = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat dateFormatDot = new SimpleDateFormat("yyyy.MM.dd");
+
+    try {
+      if (dateStr.contains("-")) {
+        return dateFormatDash.parse(dateStr);
+      } else if (dateStr.contains(".")) {
+        return dateFormatDot.parse(dateStr);
+      } else {
+        System.out.println("Неверный формат даты. Используйте [гггг-мм-дд] или [гггг.мм.дд].");
+        return null;
+      }
+    } catch (ParseException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  public static String formatDate(Date date) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    return dateFormat.format(date);
   }
 }

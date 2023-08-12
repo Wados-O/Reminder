@@ -1,26 +1,30 @@
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Task {
 
-//  private int count = 0;
+ private int count = 0;
 //  private final int id;
 //  private final Category category;
   private final String title;
   private final String message;
+
+
+
+  private final Date planeDate;
+  private final Date createdDate;
 //  private final Priority priority;
 //  private final LocalDateTime expiredDate;
 
-  public Task(String title, String message) {
-//    this.category = category;
+  public Task(String title, String message, Date planeDate, Date createdDate) {
     this.title = title;
     this.message = message;
-//    this.priority = priority;
-//    this.expiredDate = expiredDate;
+    this.planeDate = planeDate;
+    this.createdDate = createdDate;
   }
 
-//  public int getCount() {
-//    return count;
-//  }
+  public int getCount() {
+    return count;
+  }
 //
 //  public void setCount(int count) {
 //    this.count = count;
@@ -49,6 +53,13 @@ public class Task {
 //  public Priority getPriority() {
 //    return priority;
 //  }
+public Date getPlaneDate() {
+  return planeDate;
+}
+
+  public Date getCreatedDate() {
+    return createdDate;
+  }
 
   @Override
   public String toString() {

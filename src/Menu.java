@@ -45,7 +45,7 @@ public class Menu {
       int choice = Integer.parseInt(br.readLine());
 
       switch (choice) {
-        case 1 -> sortMenu(br); //ToDo отсортировать по дате
+        case 1 -> sortMenu(br);//ToDo отсортировать по дате
         case 2 -> sortMenu(br);//ToDo отсортировать по приоритету
         case 3 -> sortMenu(br);//ToDo отсортировать по категориям
         case 4 -> sortMenu(br);//ToDo отсортировать выполненные
