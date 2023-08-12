@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+
 public class Methods {
 
   private Input input;
@@ -75,6 +76,8 @@ public class Methods {
         System.out.println("""
             1.Название задачи
             2.Описание задачи
+            3.Категория задачи
+            4.Приоритет задачи
             """);
         int number = sc.nextInt();
         sc.nextLine();
@@ -89,6 +92,14 @@ public class Methods {
             String message = sc.nextLine();
             tasks.get(indexTask).setMessage(message);
             break;
+          case 3:
+            Category categoryNewTask = assigningValueCategory(sc);
+            tasks.get(indexTask).setCategory(categoryNewTask);
+            break;
+          case 4:
+            Priority priorityNewTask = assigningValuePriority(sc);
+            tasks.get(indexTask).setPriority(priorityNewTask);
+            break;
           default:
             break;
         }
@@ -101,38 +112,28 @@ public class Methods {
   }
 
   public static void addTask(Scanner sc) throws IOException {
-//    System.out.print("Выберите приоритет задачи: ");
-//    int number = sc.nextInt();
-//    sc.nextLine();
-//    System.out.print("Выберите номер приоритета: ");
-//    int priority = Integer.parseInt(sc.nextLine());
-//    sc.nextLine();
+    Priority priorityNewTask = assigningValuePriority(sc);
+    Category categoryNewTask = assigningValueCategory(sc);
+
     System.out.print("Введите название новой задачи: ");
     String name = sc.nextLine();
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
-    System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
-    String planeDateStr = sc.nextLine();
-    Date planeDate = DataConvert.parseDate(planeDateStr);
-
-   Date createdDate = new Date(); // Текущая дата и время
-    Task task = new Task(name, definition, planeDate, createdDate);
+    Task task = new Task(name, definition, categoryNewTask, priorityNewTask);
     tasks.add(task);
-    System.out.println("Задача добавлена.");
+    System.out.println();
   }
 
   public static List<Task> printNumberedList() {
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
       Task task = tasks.get(i);
-      String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      System.out.println(index + ". " + tasks.get(i).toString()  + " Выполнить: " + dateString);
+      String dateString =
+          task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+      System.out.println(index + ". " + tasks.get(i).toString() + " Выполнить: " + dateString);
     }
     return new ArrayList<>();
   }
-
-
-
 
   public static void choiceYesOrNo() {
     List<String> list = new ArrayList<>();
@@ -143,5 +144,37 @@ public class Methods {
       System.out.println(index + ". " + list.get(i));
     }
     System.out.println();
+  }
+
+  public static Priority assigningValuePriority(Scanner sc) {
+    System.out.print("Выберите номер приоритета задачи из списка: ");
+    for (Priority priority : Priority.values()) {
+      System.out.println("\n" + priority.getNum() + ". " + priority.getPriority());
+    }
+    int choiceForPriority = sc.nextInt();
+    sc.nextLine();
+    Priority priorityNewTask = null;
+    for (Priority priority : Priority.values()) {
+      if (priority.getNum() == choiceForPriority) {
+        priorityNewTask = priority;
+      }
+    }
+    return priorityNewTask;
+  }
+
+  public static Category assigningValueCategory(Scanner sc) {
+    System.out.print("Выберите номер категории задачи из списка: ");
+    for (Category category : Category.values()) {
+      System.out.println("\n" + category.getNum() + ". " + category.getNameCategory());
+    }
+    int choiceFromCategory = sc.nextInt();
+    sc.nextLine();
+    Category categoryNewTask = null;
+    for (Category category : Category.values()) {
+      if (category.getNum() == choiceFromCategory) {
+        categoryNewTask = category;
+      }
+    }
+    return categoryNewTask;
   }
 }
