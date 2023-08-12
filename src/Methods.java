@@ -113,7 +113,7 @@ public class Methods {
     String definition = sc.nextLine();
     System.out.print("Введите дату планируемого выполнения задачи (гггг-мм-дд): ");
     String planeDateStr = sc.nextLine();
-    Date planeDate = parseDate(planeDateStr);
+    Date planeDate = DataConvert.parseDate(planeDateStr);
 
    Date createdDate = new Date(); // Текущая дата и время
     Task task = new Task(name, definition, planeDate, createdDate);
@@ -131,24 +131,7 @@ public class Methods {
     return new ArrayList<>();
   }
 
-  public static Date parseDate(String dateStr) {
-    SimpleDateFormat dateFormatDash = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat dateFormatDot = new SimpleDateFormat("yyyy.MM.dd");
 
-    try {
-      if (dateStr.contains("-")) {
-        return dateFormatDash.parse(dateStr);
-      } else if (dateStr.contains(".")) {
-        return dateFormatDot.parse(dateStr);
-      } else {
-        System.out.println("Неверный формат даты. Используйте [гггг-мм-дд] или [гггг.мм.дд].");
-        return null;
-      }
-    } catch (ParseException e) {
-      e.printStackTrace();
-      return null;
-    }
-  }
   public static String formatDate(Date date) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     return dateFormat.format(date);
