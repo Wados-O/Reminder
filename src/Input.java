@@ -41,5 +41,6 @@ public class Input {
       outFile.write(result + "\n");
     }
     outFile.close();
+    System.out.println();
   }
 }
