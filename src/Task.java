@@ -2,22 +2,25 @@ import java.util.Date;
 
 public class Task {
 
- private int count = 0;
-//  private final int id;
-//  private final Category category;
+  private int count = 0;
+  //  private final int id;
+  private Category category;
   private String title;
   private String message;
-
+  private Priority priority;
 
 
   private final Date planeDate;
   private final Date createdDate;
-//  private final Priority priority;
+
 //  private final LocalDateTime expiredDate;
 
-  public Task(String title, String message, Date planeDate, Date createdDate) {
+  public Task(String title, String message, Category category, Priority priority, Date planeDate,
+      Date createdDate) {
     this.title = title;
     this.message = message;
+    this.category = category;
+    this.priority = priority;
     this.planeDate = planeDate;
     this.createdDate = createdDate;
   }
@@ -42,20 +45,21 @@ public class Task {
     return message;
   }
 
-//  public LocalDateTime getExpiredDate() {
+  //  public LocalDateTime getExpiredDate() {
 //    return expiredDate;
 //  }
 //
-//  public Category getCategory() {
-//    return category;
-//  }
-//
-//  public Priority getPriority() {
-//    return priority;
-//  }
-public Date getPlaneDate() {
-  return planeDate;
-}
+  public Category getCategory() {
+    return category;
+  }
+
+  public Priority getPriority() {
+    return priority;
+  }
+
+  public Date getPlaneDate() {
+    return planeDate;
+  }
 
   public Date getCreatedDate() {
     return createdDate;
@@ -69,8 +73,18 @@ public Date getPlaneDate() {
     this.message = message;
   }
 
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public void setPriority(Priority priority) {
+    this.priority = priority;
+  }
+
   @Override
   public String toString() {
-    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"+ " Добавлено " + createdDate;
+    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"
+        + category + "\'" + " Приоритет: '" + priority + "\'" + " Добавлено "
+        + createdDate;
   }
 }
