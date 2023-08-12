@@ -5,8 +5,8 @@ public class Task {
  private int count = 0;
 //  private final int id;
 //  private final Category category;
-  private final String title;
-  private final String message;
+  private String title;
+  private String message;
 
 
 
@@ -59,6 +59,14 @@ public Date getPlaneDate() {
 
   public Date getCreatedDate() {
     return createdDate;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   @Override

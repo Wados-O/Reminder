@@ -34,6 +34,7 @@ public class Methods {
           addTask(sc);
           break;
         case 3:
+          correctingTask(sc);
           break;
         case 4:
           remove(sc);
@@ -55,6 +56,50 @@ public class Methods {
     System.out.println();
   }
 
+  public static void correctingTask(Scanner sc) {
+    System.out.println("Введите номер задачи, которую хотите изменить:");
+    printNumberedList();
+    int numberTask = sc.nextInt();
+    sc.nextLine();
+    int indexTask = numberTask - 1;
+
+    while (true) {
+      System.out.print("Ваша задача: " + tasks.get(indexTask).toString()
+          + "\nВы хотите что-либо изменить в задаче? Выберите нужный пункт: \n");
+      System.out.println();
+      choiceYesOrNo();
+      int choice = sc.nextInt();
+      sc.nextLine();
+      if (choice == 1) {
+        System.out.print("Что вы хотите изменить в задаче, выберите номер из списка: \n");
+        System.out.println("""
+            1.Название задачи
+            2.Описание задачи
+            """);
+        int number = sc.nextInt();
+        sc.nextLine();
+        switch (number) {
+          case 1:
+            System.out.println("Введите новое название задачи:");
+            String title = sc.nextLine();
+            tasks.get(indexTask).setTitle(title);
+            break;
+          case 2:
+            System.out.println("Введите новое описание задачи:");
+            String message = sc.nextLine();
+            tasks.get(indexTask).setMessage(message);
+            break;
+          default:
+            break;
+        }
+      }
+
+      if (choice == 2) {
+        break;
+      }
+    }
+  }
+
   public static void addTask(Scanner sc) throws IOException {
 //    System.out.print("Выберите приоритет задачи: ");
 //    int number = sc.nextInt();
@@ -74,11 +119,6 @@ public class Methods {
     Task task = new Task(name, definition, planeDate, createdDate);
     tasks.add(task);
     System.out.println("Задача добавлена.");
-  }
-
-  public static void correctingTask(Scanner sc) {
-    System.out.println("Введите номер задачи, которую хотите изменить:");
-    printNumberedList();
   }
 
   public static List<Task> printNumberedList() {
@@ -112,5 +152,16 @@ public class Methods {
   public static String formatDate(Date date) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     return dateFormat.format(date);
+  }
+
+  public static void choiceYesOrNo() {
+    List<String> list = new ArrayList<>();
+    list.add("Да");
+    list.add("Нет");
+    for (int i = 0; i < list.size(); i++) {
+      int index = i + 1;
+      System.out.println(index + ". " + list.get(i));
+    }
+    System.out.println();
   }
 }
