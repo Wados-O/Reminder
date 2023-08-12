@@ -34,9 +34,12 @@ public class Input {
 
   public static void closeFileWithSaving() throws IOException {
     FileWriter outFile = new FileWriter(ourFile);
+
     for (Task task : arrayList) {
-      outFile.write(String.valueOf(task));
-      outFile.close();
+      String result = task.getTitle()
+          + SEP + task.getMessage();
+      outFile.write(result + "\n");
     }
+    outFile.close();
   }
 }
