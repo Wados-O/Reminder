@@ -21,4 +21,8 @@ public class DataConvert {
       return null;
     }
   }
+  public static String formatDate(Date date) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    return dateFormat.format(date);
+  }
 }

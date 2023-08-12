@@ -125,17 +125,14 @@ public class Methods {
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
       Task task = tasks.get(i);
-      String dateString = task.getPlaneDate() != null ? formatDate(task.getPlaneDate()) : "Без даты";
+      String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
       System.out.println(index + ". " + tasks.get(i).toString()  + " Выполнить: " + dateString);
     }
     return new ArrayList<>();
   }
 
 
-  public static String formatDate(Date date) {
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    return dateFormat.format(date);
-  }
+
 
   public static void choiceYesOrNo() {
     List<String> list = new ArrayList<>();
