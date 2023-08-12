@@ -22,15 +22,12 @@ public class Input {
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] cells = line.split(SEP);
-//      Priority priority = Priority.valueOf(cells[0]);
-//      Category category = Category.valueOf(cells[1]);
-      String tiile = cells[0];
+      String title = cells[0];
       String message = cells[1];
-      Date planeDate = null;
-      Date createdDate = null;
-      Task task = new Task(tiile, message, planeDate, createdDate);
+      Category category = Category.valueOf(cells[2]);
+      Priority priority = Priority.valueOf(cells[3]);
+      Task task = new Task(title, message, category, priority);
       arrayList.add(task);
-//      System.out.println(task);
     }
     scanner.close();
   }
@@ -39,11 +36,10 @@ public class Input {
     FileWriter outFile = new FileWriter(ourFile);
 
     for (Task task : arrayList) {
-      String result = task.getTitle()
-          + SEP + task.getMessage();
+      String result = task.getTitle() + SEP + task.getMessage() + SEP + task.getCategory() + SEP
+          + task.getPriority();
       outFile.write(result + "\n");
     }
     outFile.close();
-    System.out.println();
   }
 }
