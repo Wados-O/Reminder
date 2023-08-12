@@ -63,6 +63,6 @@ public Date getPlaneDate() {
 
   @Override
   public String toString() {
-    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'";
+    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"+ " Добавлено " + createdDate;
   }
 }

@@ -70,8 +70,8 @@ public class Methods {
     String planeDateStr = sc.nextLine();
     Date planeDate = parseDate(planeDateStr);
 
-    Date currentDate = new Date(); // Текущая дата и время
-    Task task = new Task(name, definition, planeDate, currentDate);
+   Date createdDate = new Date(); // Текущая дата и время
+    Task task = new Task(name, definition, planeDate, createdDate);
     tasks.add(task);
     System.out.println("Задача добавлена.");
   }
@@ -86,7 +86,7 @@ public class Methods {
       int index = i + 1;
       Task task = tasks.get(i);
       String dateString = task.getPlaneDate() != null ? formatDate(task.getPlaneDate()) : "Без даты";
-      System.out.println(index + ". " + tasks.get(i).toString()  + " - " + dateString);
+      System.out.println(index + ". " + tasks.get(i).toString()  + " Выполнить: " + dateString);
     }
     return new ArrayList<>();
   }
