@@ -29,7 +29,7 @@ public class Suspend {
   }
 
   public static void forthSuspend() {
-    int suspend = 500;
+    int suspend = 200;
     long start = System.currentTimeMillis();
     while (start >= System.currentTimeMillis() - suspend)
       ;
