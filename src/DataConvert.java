@@ -4,16 +4,22 @@ import java.util.Date;
 
 public class DataConvert {
   public static Date parseDate(String dateStr) {
-    SimpleDateFormat dateFormatDash = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat dateFormatDot = new SimpleDateFormat("yyyy.MM.dd");
+    SimpleDateFormat dateFormatDash = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat dateFormatComa = new SimpleDateFormat("dd,MM,yyyy");
+    SimpleDateFormat dateFormatSlash = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dateFormatDot = new SimpleDateFormat("dd.MM.yyyy");
 
     try {
       if (dateStr.contains("-")) {
         return dateFormatDash.parse(dateStr);
       } else if (dateStr.contains(".")) {
         return dateFormatDot.parse(dateStr);
-      } else {
-        System.out.println("Неверный формат даты. Используйте [гггг-мм-дд] или [гггг.мм.дд].");
+      }  else if (dateStr.contains(",")) {
+        return dateFormatComa.parse(dateStr);
+      } else if (dateStr.contains("/")) {
+        return dateFormatSlash.parse(dateStr);
+      }else {
+        System.out.println("Неверный формат даты. Используйте [dd.MM.yyyy].");
         return null;
       }
     } catch (ParseException e) {
@@ -22,7 +28,7 @@ public class DataConvert {
     }
   }
   public static String formatDate(Date date) {
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     return dateFormat.format(date);
   }
 }

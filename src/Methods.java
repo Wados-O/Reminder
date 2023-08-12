@@ -111,7 +111,7 @@ public class Methods {
     String name = sc.nextLine();
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
-    System.out.print("Введите дату планируемого выполнения задачи (гггг-мм-дд): ");
+    System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
     String planeDateStr = sc.nextLine();
     Date planeDate = DataConvert.parseDate(planeDateStr);
 
