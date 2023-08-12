@@ -1,4 +1,8 @@
 public class Style {
+  /**
+   * Colors and style to project
+   * Use in every unclear situation!!!
+ **/
   public static final String RESET = "\033[0m";  // Text Reset
 
   // Regular Colors
