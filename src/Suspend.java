@@ -7,33 +7,33 @@ public class Suspend {
   public static void longSuspend() {
     int suspend = 2000;
     long start = System.currentTimeMillis();
-    while (start >= System.currentTimeMillis() - suspend) {
-      longSuspend();
-    }
+    while (start >= System.currentTimeMillis() - suspend)
+      ;
+
   }
 
   public static void secondSuspend() {
     int suspend = 500;
     long start = System.currentTimeMillis();
-    while (start >= System.currentTimeMillis() - suspend) {
-      secondSuspend();
-    }
+    while (start >= System.currentTimeMillis() - suspend)
+      ;
+
   }
 
   public static void thirdSuspend() {
     int suspend = 100;
     long start = System.currentTimeMillis();
-    while (start >= System.currentTimeMillis() - suspend) {
-      thirdSuspend();
-    }
+    while (start >= System.currentTimeMillis() - suspend)
+      ;
+
   }
 
   public static void forthSuspend() {
     int suspend = 500;
     long start = System.currentTimeMillis();
-    while (start >= System.currentTimeMillis() - suspend) {
-      forthSuspend();
-    }
+    while (start >= System.currentTimeMillis() - suspend)
+      ;
+
 
   }
 }
