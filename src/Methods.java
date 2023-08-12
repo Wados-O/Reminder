@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-
 public class Methods {
 
   private Input input;
@@ -112,6 +111,13 @@ public class Methods {
   }
 
   public static void addTask(Scanner sc) throws IOException {
+//    System.out.print("Выберите приоритет задачи: ");
+//    int number = sc.nextInt();
+//    sc.nextLine();
+//    System.out.print("Выберите номер приоритета: ");
+//    int priority = Integer.parseInt(sc.nextLine());
+//    sc.nextLine();
+    //todo добавить проверку на актуальность даты
     Priority priorityNewTask = assigningValuePriority(sc);
     Category categoryNewTask = assigningValueCategory(sc);
 
@@ -119,9 +125,14 @@ public class Methods {
     String name = sc.nextLine();
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
-    Task task = new Task(name, definition, categoryNewTask, priorityNewTask);
+    System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
+    String planeDateStr = sc.nextLine();
+    Date planeDate = DataConvert.parseDate(planeDateStr);
+
+   Date createdDate = new Date(); // Текущая дата и время
+    Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate);
     tasks.add(task);
-    System.out.println();
+    System.out.println("Задача добавлена.");
   }
 
   public static List<Task> printNumberedList() {
@@ -134,6 +145,9 @@ public class Methods {
     }
     return new ArrayList<>();
   }
+
+
+
 
   public static void choiceYesOrNo() {
     List<String> list = new ArrayList<>();

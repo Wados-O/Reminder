@@ -24,9 +24,12 @@ public class Input {
       String[] cells = line.split(SEP);
       String title = cells[0];
       String message = cells[1];
+
       Category category = Category.valueOf(cells[2]);
       Priority priority = Priority.valueOf(cells[3]);
-      Task task = new Task(title, message, category, priority);
+      Date planeDate = DataConvert.parseDate(cells[2]); // Пропущенный код для парсинга даты
+      Date createdDate = DataConvert.parseDate(cells[2]);
+      Task task = new Task(title, message, category, priority , planeDate, createdDate);
       arrayList.add(task);
     }
     scanner.close();
