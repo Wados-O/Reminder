@@ -11,24 +11,31 @@ public class Input {
   protected static List<Task> arrayList = new ArrayList<>();
   private static final String SEP = ";;;";
 
-  public static void readTaskFromFile(Scanner scanner) throws IOException {
-  scanner = new Scanner(new File(ourFile));
+  public static void readTaskFromFile() throws IOException {
+    File file = new File(ourFile);
+    if (ourFile.length() == 0) {
+      return;
+    }
+    Scanner scanner = new Scanner(file);
 
-  while (scanner.hasNextLine()) {
-    String line = scanner.nextLine();
-    String[] cells = line.split(SEP);
-    int id = cells[0];
-
-    arrayList.add(line);
-    System.out.println(line);
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine();
+      String[] cells = line.split(SEP);
+//      Priority priority = Priority.valueOf(cells[0]);
+//      Category category = Category.valueOf(cells[1]);
+      String tiile = cells[0];
+      String message = cells[1];
+      Task task = new Task(tiile, message);
+      arrayList.add(task);
+//      System.out.println(task);
+    }
+    scanner.close();
   }
-  scanner.close();
-  }
 
-  public static void closeFileWithSaving(List<String> tasks, File file, Scanner scanner) throws IOException {
-    FileWriter outFile = new FileWriter(file);
-    for (Task line : tasks) {
-      outFile.write(String.valueOf(line));
+  public static void closeFileWithSaving() throws IOException {
+    FileWriter outFile = new FileWriter(ourFile);
+    for (Task task : arrayList) {
+      outFile.write(String.valueOf(task));
       outFile.close();
     }
   }
