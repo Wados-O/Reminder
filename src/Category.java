@@ -3,7 +3,7 @@ public enum Category {
   WORK(2,"Работа"),
   SHOPPING(3,"Покупки"),
   PERSONAL(4,"Личные"),
-  HEALTH(5,"Здорове");
+  HEALTH(5,"Здоровье");
 
   private final int num;
 private String nameCategory;

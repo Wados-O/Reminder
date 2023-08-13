@@ -16,7 +16,8 @@ public class Runner {
 //    Suspend.longSuspend();
 //    Intro.speedJump();
 //    Intro.speedJump();
-Methods.printTaskList();
+    Input.readTaskFromFile();
+    Methods.printTaskList();
 Methods.menu(new Scanner(System.in));
 
 

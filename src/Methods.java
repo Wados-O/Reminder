@@ -11,7 +11,7 @@ public class Methods {
     Scanner sc = new Scanner(System.in);
 
   public static void menu(Scanner sc) throws IOException {
-    Input.readTaskFromFile();
+
     System.out.println("Добро пожаловать в программу ");
 
     while (true) {
