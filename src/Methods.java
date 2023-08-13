@@ -147,20 +147,20 @@ public class Methods {
   }
   public static void printTaskList() {
     System.out.println("┌──────┬────────────────────┬──────────────────────────────────────────────────────────────┬─────────────────────┬────────────────────┬──────────────────┬───────────────┐");
-    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │    Статус    │");
+    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │    Статус     │");
     System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
 
-    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-13s│%n";
+    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
 
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
       Task task = tasks.get(i);
-      String title = truncateString(task.getTitle(), 24);
+      String title = truncateString(task.getTitle(), 20);
       String message = truncateString(task.getMessage(), 58);
       String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
       String priority = truncateString(task.getPriority().getPriority(), 24);
       String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      String status = task.isDone() ? "✔️" : "⏰";
+      String status = task.isDone() ? "      ✔️       " :"      ❌       ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasks.size() - 1) {
         System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
