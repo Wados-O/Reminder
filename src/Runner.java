@@ -6,8 +6,12 @@ public class Runner {
     Intro.logoPresents();
     Intro.emptyPlace();
     Intro.stringLoading();
-    Intro.emptyPlace();
+    Intro.speedJump();
     Intro.logoProject();
     Intro.emptyPlace();
+    Intro.stringDownload();
+    Suspend.longSuspend();
+
+
   }
 }

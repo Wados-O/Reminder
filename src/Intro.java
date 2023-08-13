@@ -89,9 +89,22 @@ public class Intro extends Style{
       System.out.println("                                                                         ");
     }
   }
+  public static void speedJump(){
+    for (int i = 0; i < 45; i++) {
+      System.out.println("       ");
+    }
+  }
   public static void stringLoading(){
     System.out.print(RED_BACKGROUND +"LOADING");
     for (int i = 0; i < 5; i++) {
+      Suspend.secondSuspend();
+      System.out.print(".");
+    }
+    System.out.println(RESET);
+  }
+  public static void stringDownload(){
+    System.out.print(RED_BACKGROUND + "DOWNLOAD SYSTEM FILES ");
+    for (int i = 0; i < 7; i++) {
       Suspend.secondSuspend();
       System.out.print(".");
     }
