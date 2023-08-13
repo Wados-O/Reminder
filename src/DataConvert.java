@@ -20,7 +20,7 @@ public class DataConvert {
       } else if (dateStr.contains("/")) {
         return dateFormatSlash.parse(dateStr);
       } else {
-        System.out.println("Неверный формат даты. Используйте [dd.MM.yyyy].");
+        System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
         return null;
       }
 

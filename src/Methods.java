@@ -161,10 +161,10 @@ public class Methods implements Table {
           if (planeDate != null && !planeDate.before(currentDate)) {
             validDate = true;
           } else if (planeDate != null) {
-            System.out.println("Дата не может быть раньше текущей даты.");
+            System.out.println(ColorsSet.YELLOW +"Дата не может быть раньше текущей даты." + ColorsSet.RESET);
           }
         } catch (NumberFormatException e) {
-          System.out.println(ColorsSet.BLACK_BACKGROUND + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
+          System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
         }
       } else {
         System.out.println(ColorsSet.RED_BRIGHT +  "Неверный формат даты.Пожалуйста введите время в формате [dd.MM.yyyy]" + ColorsSet.RESET);
