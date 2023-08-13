@@ -13,7 +13,7 @@ public class Menu {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     System.out.println("""
-        1. просмотреть список задач
+        1.просмотреть список задач
         2.добавить задачу
         3.удалить задачу
         4.редактировать задачу
