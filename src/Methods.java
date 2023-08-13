@@ -19,8 +19,10 @@ public class Methods implements Table{
           1.Распечатать список задач 
           2.Добавить новую задачу
           3.Редактировать задачу
-          4.Удалить задачу
-          5.Выход из программы 
+          4.Отсортировать задачи по категориям
+          5.Отсортировать задачи по приоритету
+          5.Удалить задачу
+          6.Выход из программы 
           """);
       int choice = sc.nextInt();
       sc.nextLine();
@@ -36,9 +38,14 @@ public class Methods implements Table{
           correctingTask(sc);
           break;
         case 4:
-          remove(sc);
+          sortOnCategory();
           break;
         case 5:
+          break;
+        case 6:
+          remove(sc);
+          break;
+        case 7:
           System.out.println("До свидания!!!");
           Input.closeFileWithSaving();
           System.exit(0);
@@ -215,5 +222,10 @@ public class Methods implements Table{
       }
     }
     return categoryNewTask;
+  }
+
+  public static void sortOnCategory() {
+    tasks.sort(new TaskByCategoryComparator());
+    printTaskList();
   }
 }
