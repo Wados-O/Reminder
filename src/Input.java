@@ -31,7 +31,7 @@ public class Input {
         Date createdDate = DataConvert.parseDate(cells[5]);
         boolean isDone = Boolean.parseBoolean(cells[6]);
         // тестовая строка
-        System.out.println("Read task: " + title + ", " + message + ", " + category + ", " + priority + ", " + planeDate + ", " + createdDate + ", " + isDone);
+       // System.out.println("Read task: " + title + ", " + message + ", " + category + ", " + priority + ", " + planeDate + ", " + createdDate + ", " + isDone);
         if (planeDate != null && createdDate != null) { // Проверка на корректность дат
           Task task = new Task(title, message, category, priority, planeDate, createdDate, isDone);
           arrayList.add(task);
