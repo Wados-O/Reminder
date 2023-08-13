@@ -22,8 +22,9 @@ public class Methods implements Table {
           3.Редактировать задачу
           4.Отсортировать задачи по категориям
           5.Отсортировать задачи по приоритету
-          6.Удалить задачу
-          7.Выход из программы 
+          6.Отсортировать задачи по дате исполнения
+          7.Удалить задачу
+          8.Выход из программы 
           """);
       int choice = sc.nextInt();
       sc.nextLine();
@@ -45,9 +46,12 @@ public class Methods implements Table {
           sortOnPriority();
           break;
         case 6:
-          remove(sc);
+          sortDate();
           break;
         case 7:
+          remove(sc);
+          break;
+        case 8:
           System.out.println("До свидания!!!");
           Input.closeFileWithSaving();
           System.exit(0);
@@ -254,6 +258,11 @@ public class Methods implements Table {
 
   public static void sortOnPriority() {
     tasks.sort(new TaskByPriorityComparator());
+    printTaskList();
+  }
+
+  public static void sortDate() {
+    tasks.sort(new TaskByPlaneDateComparator());
     printTaskList();
   }
 }
