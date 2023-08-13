@@ -3,40 +3,29 @@ import java.util.Date;
 public class Task {
 
   private int count = 0;
-  //  private final int id;
   private Category category;
   private String title;
   private String message;
   private Priority priority;
 
-
   private final Date planeDate;
   private final Date createdDate;
-
-//  private final LocalDateTime expiredDate;
+private boolean isDone;
 
   public Task(String title, String message, Category category, Priority priority, Date planeDate,
-      Date createdDate) {
+      Date createdDate, boolean isDone) {
     this.title = title;
     this.message = message;
     this.category = category;
     this.priority = priority;
     this.planeDate = planeDate;
     this.createdDate = createdDate;
+    this.isDone = isDone;
   }
 
   public int getCount() {
     return count;
   }
-//
-//  public void setCount(int count) {
-//    this.count = count;
-//  }
-//
-//  public int getId() {
-//    return id;
-//  }
-
   public String getTitle() {
     return title;
   }
@@ -45,10 +34,6 @@ public class Task {
     return message;
   }
 
-  //  public LocalDateTime getExpiredDate() {
-//    return expiredDate;
-//  }
-//
   public Category getCategory() {
     return category;
   }
@@ -81,6 +66,15 @@ public class Task {
     this.priority = priority;
   }
 
+  public boolean isDone() {
+    return isDone;
+  }
+public void markAsDone(){
+    this.isDone = true;
+}
+  public void setDone(boolean done) {
+    isDone = done;
+  }
   @Override
   public String toString() {
     return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"

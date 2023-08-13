@@ -29,8 +29,10 @@ public class Input {
         Priority priority = Priority.valueOf(cells[3]);
         Date planeDate = DataConvert.parseDate(cells[4]);
         Date createdDate = DataConvert.parseDate(cells[5]);
+        boolean isDone = Boolean.parseBoolean(cells[6]);
+
         if (planeDate != null && createdDate != null) { // Проверка на корректность дат
-          Task task = new Task(title, message, category, priority, planeDate, createdDate);
+          Task task = new Task(title, message, category, priority, planeDate, createdDate, isDone);
           arrayList.add(task);
         }
       }

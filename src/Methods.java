@@ -72,10 +72,11 @@ public class Methods {
       if (choice == 1) {
         System.out.print("Что вы хотите изменить в задаче, выберите номер из списка: \n");
         System.out.println("""
-            1.Название задачи
-            2.Описание задачи
-            3.Категория задачи
-            4.Приоритет задачи
+        1. Название задачи
+                2. Описание задачи
+                3. Категория задачи
+                4. Приоритет задачи
+                5. Статус задачи
             """);
         int number = sc.nextInt();
         sc.nextLine();
@@ -97,6 +98,15 @@ public class Methods {
           case 4:
             Priority priorityNewTask = assigningValuePriority(sc);
             tasks.get(indexTask).setPriority(priorityNewTask);
+            break;
+          case 5:
+            System.out.println("Выберите статус задачи:");
+            System.out.println("1. Выполнено");
+            System.out.println("2. Не выполнено");
+            int statusChoice = sc.nextInt();
+            sc.nextLine();
+            boolean isDone = (statusChoice == 1);
+            tasks.get(indexTask).setDone(isDone);
             break;
           default:
             break;
@@ -129,16 +139,18 @@ public class Methods {
     Date planeDate = DataConvert.parseDate(planeDateStr);
 
    Date createdDate = new Date(); // Текущая дата и время
-    Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate);
+    boolean isDone = false;
+    Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate,
+        isDone);
     tasks.add(task);
     System.out.println("Задача добавлена.");
   }
   public static void printTaskList() {
-    System.out.println("┌──────┬────────────────────┬──────────────────────────────────────────────────────────────┬─────────────────────┬────────────────────┬──────────────────┐");
-    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │");
-    System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┤");
+    System.out.println("┌──────┬────────────────────┬──────────────────────────────────────────────────────────────┬─────────────────────┬────────────────────┬──────────────────┬───────────────┐");
+    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │    Статус    │");
+    System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
 
-    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%n";
+    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-13s│%n";
 
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
@@ -148,12 +160,13 @@ public class Methods {
       String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
       String priority = truncateString(task.getPriority().getPriority(), 24);
       String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      System.out.printf(format, index, title, message, categoryName, priority, dateString);
+      String status = task.isDone() ? "✔️" : "⏰";
+      System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasks.size() - 1) {
-        System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┤");
+        System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
       }
     }
-    System.out.println("└──────┴────────────────────┴──────────────────────────────────────────────────────────────┴─────────────────────┴────────────────────┴──────────────────┘");
+    System.out.println("└──────┴────────────────────┴──────────────────────────────────────────────────────────────┴─────────────────────┴────────────────────┴──────────────────┴───────────────┘");
   }
 
   public static String truncateString(String str, int maxLength) {
