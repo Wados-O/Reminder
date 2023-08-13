@@ -9,9 +9,9 @@ public class Methods {
 
   private Input input;
   static List<Task> tasks = Input.arrayList;
-
-  public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
+
+  public static void menu(Scanner sc) throws IOException {
     Input.readTaskFromFile();
     System.out.println("Добро пожаловать в программу ");
 
