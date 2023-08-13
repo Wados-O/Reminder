@@ -4,6 +4,7 @@ public class Style {
    * Use in every unclear situation!!!
  **/
   public static final String RESET = "\033[0m";  // Text Reset
+  public static final  String SPACE = "\u2009\u2009";
 
   // Regular Colors
   public static final String BLACK = "\033[0;30m";   // BLACK
