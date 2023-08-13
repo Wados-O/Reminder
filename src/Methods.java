@@ -14,8 +14,7 @@ public class Methods implements Table {
 
     while (true) {
       System.out.println(Menu.SHOW_FIRST_MENU);
-      int choice = sc.nextInt();
-      sc.nextLine();
+      int choice = Input.readIntLimited(1,5);
       switch (choice) {
         case 1:
           changeTaskStatus(sc);
@@ -42,21 +41,23 @@ public class Methods implements Table {
   }
   public static void sortMenu(Scanner sc) throws IOException {
     while (true){
-      int choice = sc.nextInt();
-      sc.nextLine();
+      int choice = Input.readIntLimited(1,5);
       switch (choice){
         case 1:
-          sortOnCategory();
+          sortDate();
           break;
         case 2:
           sortOnPriority();
           break;
         case 3:
-          sortDate();
+          sortOnCategory();
           break;
         case 4:
           firstMenu(sc);
         break;
+        case 5:
+          firstMenu(sc);
+          break;
       }
     }
   }
@@ -80,7 +81,7 @@ public class Methods implements Table {
   public static void remove(Scanner sc) {
     System.out.println("Введите номер задачи, которую хотите удалить:");
     printTaskList();
-    int numberTask = sc.nextInt();
+    int numberTask =  Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
     tasks.remove(indexTask);
     System.out.println();
@@ -89,8 +90,7 @@ public class Methods implements Table {
   public static void correctingTask(Scanner sc) {
     System.out.println("Введите номер задачи, которую хотите изменить:");
     printTaskList();
-    int numberTask = sc.nextInt();
-    sc.nextLine();
+    int numberTask =  Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
 
     while (true) {
