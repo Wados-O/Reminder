@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
+
 public class Methods {
 
   private Input input;
@@ -27,7 +26,7 @@ public class Methods {
       sc.nextLine();
       switch (choice) {
         case 1:
-          printNumberedList();
+          printTaskList();
           System.out.println();
           break;
         case 2:
@@ -49,7 +48,7 @@ public class Methods {
 
   public static void remove(Scanner sc) {
     System.out.println("Введите номер задачи, которую хотите удалить:");
-    printNumberedList();
+    printTaskList();
     int numberTask = sc.nextInt();
     int indexTask = numberTask - 1;
     tasks.remove(indexTask);
@@ -58,7 +57,7 @@ public class Methods {
 
   public static void correctingTask(Scanner sc) {
     System.out.println("Введите номер задачи, которую хотите изменить:");
-    printNumberedList();
+    printTaskList();
     int numberTask = sc.nextInt();
     sc.nextLine();
     int indexTask = numberTask - 1;
@@ -134,18 +133,35 @@ public class Methods {
     tasks.add(task);
     System.out.println("Задача добавлена.");
   }
+  public static void printTaskList() {
+    System.out.println("┌──────┬────────────────────┬──────────────────────────────────────────────────────────────┬─────────────────────┬────────────────────┬──────────────────┐");
+    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │");
+    System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┤");
 
-  public static List<Task> printNumberedList() {
+    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%n";
+
     for (int i = 0; i < tasks.size(); i++) {
       int index = i + 1;
       Task task = tasks.get(i);
-      String dateString =
-          task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      System.out.println(index + ". " + tasks.get(i).toString() + " Выполнить: " + dateString);
+      String title = truncateString(task.getTitle(), 24);
+      String message = truncateString(task.getMessage(), 58);
+      String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
+      String priority = truncateString(task.getPriority().getPriority(), 24);
+      String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+      System.out.printf(format, index, title, message, categoryName, priority, dateString);
+      if (i < tasks.size() - 1) {
+        System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┤");
+      }
     }
-    return new ArrayList<>();
+    System.out.println("└──────┴────────────────────┴──────────────────────────────────────────────────────────────┴─────────────────────┴────────────────────┴──────────────────┘");
   }
 
+  public static String truncateString(String str, int maxLength) {
+    if (str.length() > maxLength) {
+      return str.substring(0, maxLength);
+    }
+    return str;
+  }
 
 
 
