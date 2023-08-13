@@ -131,7 +131,7 @@ public class Methods implements Table{
     Category categoryNewTask = assigningValueCategory(sc);
 
     System.out.print("Введите название новой задачи: ");
-    String name = sc.nextLine();
+    String name = Input.readStringLimited(3,22);
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
     System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
@@ -207,8 +207,7 @@ public class Methods implements Table{
     for (Category category : Category.values()) {
       System.out.println("\n" + category.getNum() + ". " + category.getNameCategory());
     }
-    int choiceFromCategory = sc.nextInt();
-    sc.nextLine();
+    int choiceFromCategory = Input.readIntLimited(1,5);
     Category categoryNewTask = null;
     for (Category category : Category.values()) {
       if (category.getNum() == choiceFromCategory) {
