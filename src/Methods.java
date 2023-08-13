@@ -1,10 +1,11 @@
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Methods implements Table{
+public class Methods implements Table {
 
   private Input input;
   static List<Task> tasks = Input.arrayList;
@@ -142,11 +143,33 @@ public class Methods implements Table{
     String name = Input.readStringLimited(3,22);
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
-    System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
-    String planeDateStr = sc.nextLine();
-    Date planeDate = DataConvert.parseDate(planeDateStr);
 
    Date createdDate = new Date(); // Текущая дата и время
+
+    Date planeDate = null;
+    boolean validDate = false;
+
+    while (!validDate) {
+      System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
+      String planeDateStr = sc.nextLine();
+
+      if (planeDateStr.matches("[0-9.,/-]+")) {
+        try {
+          planeDate = DataConvert.parseDate(planeDateStr);
+          Date currentDate = new Date();
+
+          if (planeDate != null && !planeDate.before(currentDate)) {
+            validDate = true;
+          } else if (planeDate != null) {
+            System.out.println("Дата не может быть раньше текущей даты.");
+          }
+        } catch (NumberFormatException e) {
+          System.out.println(ColorsSet.BLACK_BACKGROUND + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
+        }
+      } else {
+        System.out.println(ColorsSet.RED_BRIGHT +  "Неверный формат даты.Пожалуйста введите время в формате [dd.MM.yyyy]" + ColorsSet.RESET);
+      }
+    }
     boolean isDone = false;
     Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate,
         isDone);
@@ -199,8 +222,7 @@ public class Methods implements Table{
     for (Priority priority : Priority.values()) {
       System.out.println("\n" + priority.getNum() + ". " + priority.getPriority());
     }
-    int choiceForPriority = sc.nextInt();
-    sc.nextLine();
+    int choiceForPriority = Input.readIntLimited(1,3);
     Priority priorityNewTask = null;
     for (Priority priority : Priority.values()) {
       if (priority.getNum() == choiceForPriority) {
