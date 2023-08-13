@@ -1,4 +1,4 @@
-public class Intro extends Style{
+public class Intro extends ColorsSet {
   /**
    * logo to the project
    * used the colors from Style

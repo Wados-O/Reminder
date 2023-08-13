@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Methods {
+public class Methods implements Table{
 
   private Input input;
   static List<Task> tasks = Input.arrayList;
@@ -146,10 +146,7 @@ public class Methods {
     System.out.println("Задача добавлена.");
   }
   public static void printTaskList() {
-    System.out.println("┌──────┬────────────────────┬──────────────────────────────────────────────────────────────┬─────────────────────┬────────────────────┬──────────────────┬───────────────┐");
-    System.out.println("│   #  │     Наименование   │                           Описание                           │      Категория      │    Приоритет       │       Дата       │    Статус     │");
-    System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
-
+    System.out.println(HEADER);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
 
     for (int i = 0; i < tasks.size(); i++) {
@@ -163,10 +160,10 @@ public class Methods {
       String status = task.isDone() ? "      ✔️       " :"      ❌       ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasks.size() - 1) {
-        System.out.println("├──────┼────────────────────┼──────────────────────────────────────────────────────────────┼─────────────────────┼────────────────────┼──────────────────┼───────────────┤");
+        System.out.println(MIDDLE);
       }
     }
-    System.out.println("└──────┴────────────────────┴──────────────────────────────────────────────────────────────┴─────────────────────┴────────────────────┴──────────────────┴───────────────┘");
+    System.out.println(FOOTER);
   }
 
   public static String truncateString(String str, int maxLength) {

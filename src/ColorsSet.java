@@ -1,4 +1,4 @@
-public class Style {
+public class ColorsSet {
   /**
    * Colors and style to project
    * Use in every unclear situation!!!
