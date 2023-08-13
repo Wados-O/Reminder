@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Input {
+public class Input extends ColorsSet {
 
   private static String ourFile = "res/tasks.csv";
   protected static List<Task> arrayList = new ArrayList<>();
@@ -40,7 +40,25 @@ public class Input {
     }
     scanner.close();
   }
+  public static int readIntLimited(int min, int max) {
+    Scanner sc = new Scanner(System.in);
+    int num = 0;
+    do {
+      try {
+        num = Integer.parseInt(sc.nextLine());
+      } catch (NumberFormatException e) {
+        System.out.println("Вводите только цифры");
+        System.out.println();
+      }
+      if (!(num >= min && num <= max)) {
+        System.out.println(PURPLE);
+        System.out.printf("Введите число от %d до %d:", min, max);
+        System.out.println(RESET);
+      }
 
+    } while (!(num >= min && num <= max));
+    return num;
+  }
 
   public static void closeFileWithSaving() throws IOException {
     FileWriter outFile = new FileWriter(ourFile);
