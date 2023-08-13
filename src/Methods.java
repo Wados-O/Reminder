@@ -11,6 +11,7 @@ public class Methods implements Table {
   Scanner sc = new Scanner(System.in);
 
   public static void firstMenu(Scanner sc) throws IOException {
+    Intro.speedJump();
     Methods.printTaskList();
     while (true) {
       System.out.println(Menu.SHOW_FIRST_MENU);
@@ -43,6 +44,7 @@ public class Methods implements Table {
   }
   public static void sortMenu(Scanner sc) throws IOException {
     while (true){
+      Intro.speedJump();
       Methods.printTaskList();
       System.out.println(Menu.SHOW_SORT_MENU);
       System.out.println();
@@ -73,8 +75,9 @@ public class Methods implements Table {
   }
 
   public static void changeTaskStatus(Scanner sc) {
-    System.out.println("Введите номер задачи, состояние которой вы хотите изменить:");
+    Intro.speedJump();
     printTaskList();
+    System.out.println("Введите номер задачи, состояние которой вы хотите изменить:");
     int numberTask = Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
     System.out.println("Выберите новое состояние задачи:");
@@ -98,8 +101,10 @@ public class Methods implements Table {
   }
 
   public static void correctingTask(Scanner sc) {
-    System.out.println("Введите номер задачи, которую хотите изменить:");
+    Intro.speedJump();
     printTaskList();
+    System.out.println("Введите номер задачи, которую хотите изменить:");
+
     int numberTask =  Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
 
