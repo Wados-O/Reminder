@@ -9,7 +9,7 @@ public class Methods implements Table {
 
   private Input input;
   static List<Task> tasks = Input.arrayList;
-    Scanner sc = new Scanner(System.in);
+  Scanner sc = new Scanner(System.in);
 
   public static void menu(Scanner sc) throws IOException {
 
@@ -17,46 +17,67 @@ public class Methods implements Table {
 
     while (true) {
       System.out.println("""
-          1.Распечатать список задач 
-          2.Добавить новую задачу
-          3.Редактировать задачу
-          4.Отсортировать задачи по категориям
-          5.Отсортировать задачи по приоритету
-          6.Отсортировать задачи по дате исполнения
-          7.Удалить задачу
-          8.Выход из программы 
+          1. Изменить состояние задачи (выполнена/не выполнена)
+          2. Распечатать список задач
+          3. Добавить новую задачу
+          4. Редактировать задачу
+          5. Отсортировать задачи по категориям
+          6. Отсортировать задачи по приоритету
+          7. Отсортировать задачи по дате исполнения
+          8. Удалить задачу
+          9. Выход из программы
           """);
       int choice = sc.nextInt();
       sc.nextLine();
       switch (choice) {
         case 1:
+          changeTaskStatus(sc);
+          break;
+        case 2:
           printTaskList();
           System.out.println();
           break;
-        case 2:
+        case 3:
           addTask(sc);
           break;
-        case 3:
+        case 4:
           correctingTask(sc);
           break;
-        case 4:
+        case 5:
           sortOnCategory();
           break;
-        case 5:
+        case 6:
           sortOnPriority();
           break;
-        case 6:
+        case 7:
           sortDate();
           break;
-        case 7:
+        case 8:
           remove(sc);
           break;
-        case 8:
+        case 9:
           System.out.println("До свидания!!!");
           Input.closeFileWithSaving();
           System.exit(0);
       }
     }
+
+  }
+
+  public static void changeTaskStatus(Scanner sc) {
+    System.out.println("Введите номер задачи, состояние которой вы хотите изменить:");
+    printTaskList();
+    int numberTask = Input.readIntLimited(1, tasks.size());
+    int indexTask = numberTask - 1;
+    System.out.println("Выберите новое состояние задачи:");
+    System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
+    System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
+    int statusChoice = Input.readIntLimited(1, 2);
+
+    boolean newStatus = (statusChoice == 1);
+    tasks.get(indexTask).setDone(newStatus);
+    System.out.println(ColorsSet.YELLOW + "Состояние задачи успешно изменено." + ColorsSet.RESET);
+    printTaskList();
   }
 
   public static void remove(Scanner sc) {
@@ -85,12 +106,12 @@ public class Methods implements Table {
       if (choice == 1) {
         System.out.print("Что вы хотите изменить в задаче, выберите номер из списка: \n");
         System.out.println("""
-        1. Название задачи
-                2. Описание задачи
-                3. Категория задачи
-                4. Приоритет задачи
-                5. Статус задачи
-            """);
+            1. Название задачи
+                    2. Описание задачи
+                    3. Категория задачи
+                    4. Приоритет задачи
+                    5. Статус задачи
+                """);
         int number = sc.nextInt();
         sc.nextLine();
         switch (number) {
@@ -116,8 +137,8 @@ public class Methods implements Table {
             System.out.println("Выберите статус задачи:");
             System.out.println("1. Выполнено");
             System.out.println("2. Не выполнено");
-            int statusChoice = sc.nextInt();
-            sc.nextLine();
+            int statusChoice = Input.readIntLimited(1, 2);
+
             boolean isDone = (statusChoice == 1);
             tasks.get(indexTask).setDone(isDone);
             break;
@@ -144,11 +165,11 @@ public class Methods implements Table {
     Category categoryNewTask = assigningValueCategory(sc);
 
     System.out.print("Введите название новой задачи: ");
-    String name = Input.readStringLimited(3,22);
+    String name = Input.readStringLimited(3, 22);
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
 
-   Date createdDate = new Date(); // Текущая дата и время
+    Date createdDate = new Date(); // Текущая дата и время
 
     Date planeDate = null;
     boolean validDate = false;
@@ -165,13 +186,17 @@ public class Methods implements Table {
           if (planeDate != null && !planeDate.before(currentDate)) {
             validDate = true;
           } else if (planeDate != null) {
-            System.out.println(ColorsSet.YELLOW +"Дата не может быть раньше текущей даты." + ColorsSet.RESET);
+            System.out.println(
+                ColorsSet.YELLOW + "Дата не может быть раньше текущей даты." + ColorsSet.RESET);
           }
         } catch (NumberFormatException e) {
-          System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
+          System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]."
+              + ColorsSet.RESET);
         }
       } else {
-        System.out.println(ColorsSet.RED_BRIGHT +  "Неверный формат даты.Пожалуйста введите время в формате [dd.MM.yyyy]" + ColorsSet.RESET);
+        System.out.println(ColorsSet.RED_BRIGHT
+            + "Неверный формат даты.Пожалуйста введите время в формате [dd.MM.yyyy]"
+            + ColorsSet.RESET);
       }
     }
     boolean isDone = false;
@@ -180,6 +205,7 @@ public class Methods implements Table {
     tasks.add(task);
     System.out.println("Задача добавлена.");
   }
+
   public static void printTaskList() {
     System.out.println(HEADER);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
@@ -191,8 +217,9 @@ public class Methods implements Table {
       String message = truncateString(task.getMessage(), 58);
       String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
       String priority = truncateString(task.getPriority().getPriority(), 24);
-      String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      String status = task.isDone() ? "      ✔️       " :"      ❌       ";
+      String dateString =
+          task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+      String status = task.isDone() ? "      ✔️       " : "      ❌       ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasks.size() - 1) {
         System.out.println(MIDDLE);
@@ -207,7 +234,6 @@ public class Methods implements Table {
     }
     return str;
   }
-
 
 
   public static void choiceYesOrNo() {
@@ -226,7 +252,7 @@ public class Methods implements Table {
     for (Priority priority : Priority.values()) {
       System.out.println("\n" + priority.getNum() + ". " + priority.getPriority());
     }
-    int choiceForPriority = Input.readIntLimited(1,3);
+    int choiceForPriority = Input.readIntLimited(1, 3);
     Priority priorityNewTask = null;
     for (Priority priority : Priority.values()) {
       if (priority.getNum() == choiceForPriority) {
@@ -241,7 +267,7 @@ public class Methods implements Table {
     for (Category category : Category.values()) {
       System.out.println("\n" + category.getNum() + ". " + category.getNameCategory());
     }
-    int choiceFromCategory = Input.readIntLimited(1,5);
+    int choiceFromCategory = Input.readIntLimited(1, 5);
     Category categoryNewTask = null;
     for (Category category : Category.values()) {
       if (category.getNum() == choiceFromCategory) {
