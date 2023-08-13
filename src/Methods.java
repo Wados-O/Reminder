@@ -288,4 +288,9 @@ public class Methods implements Table {
     tasks.sort(new TaskByPlaneDateComparator());
     printTaskList();
   }
+
+  public static void sortIsDone() {
+    tasks.sort(new TaskByDoneComporator());
+    printTaskList();
+  }
 }

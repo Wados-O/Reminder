@@ -1,6 +1,7 @@
 import java.util.Date;
+import java.util.Objects;
 
-public class Task {
+public class Task implements Comparable<Task> {
 
   private int count = 0;
   private Category category;
@@ -80,5 +81,38 @@ public void markAsDone(){
     return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"
         + category + "\'" + " Приоритет: '" + priority + "\'" + " Добавлено "
         + createdDate;
+  }
+
+  @Override
+  public int compareTo(Task task) {
+    if (!title.equals(task.title)) {
+      return title.compareTo(task.title);
+    }
+
+    if (!message.equals(task.message)) {
+      return message.compareTo(task.message);
+    }
+
+    return createdDate.compareTo(task.getCreatedDate());
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Task task = (Task) o;
+    return count == task.count && category == task.category && Objects.equals(title,
+        task.title) && Objects.equals(message, task.message) && priority == task.priority
+        && Objects.equals(planeDate, task.planeDate) && Objects.equals(
+        createdDate, task.createdDate);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(count, category, title, message, priority, planeDate, createdDate);
   }
 }
