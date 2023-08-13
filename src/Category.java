@@ -1,9 +1,9 @@
 public enum Category {
- HOME(1,"HOME"),
-  WORK(2,"WORK"),
-  SHOPPING(3,"SHOPPING"),
-  PERSONAL(4,"PERSONAL"),
-  HEALTH(5,"HEALTH");
+ HOME(1,"Дом"),
+  WORK(2,"Работа"),
+  SHOPPING(3,"Покупки"),
+  PERSONAL(4,"Личные"),
+  HEALTH(5,"Здорове");
 
   private final int num;
 private String nameCategory;

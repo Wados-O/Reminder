@@ -1,7 +1,7 @@
 public enum Priority {
-  HIGH(1,"HIGH"),
-  MEDIUM(2,"MEDIUM"),
-  LOW(3,"LOW"),
+  HIGH(1,Style.RED + "ВЫСОКИЙ " + Style.RESET),
+  MEDIUM(2, Style.YELLOW+ "СРЕДНИЙ" + Style.RESET),
+  LOW(3,Style.GREEN + "НИЗКИЙ" + Style.RESET),
       ;
 private int num;
 private String priority;
