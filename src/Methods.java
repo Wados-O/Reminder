@@ -11,9 +11,10 @@ public class Methods implements Table {
   Scanner sc = new Scanner(System.in);
 
   public static void firstMenu(Scanner sc) throws IOException {
-
+    Methods.printTaskList();
     while (true) {
       System.out.println(Menu.SHOW_FIRST_MENU);
+      System.out.println(Menu.EXIT_BUTTON);
       int choice = Input.readIntLimited(1,5);
       switch (choice) {
         case 1:
@@ -41,6 +42,9 @@ public class Methods implements Table {
   }
   public static void sortMenu(Scanner sc) throws IOException {
     while (true){
+      Methods.printTaskList();
+      System.out.println(Menu.SHOW_SORT_MENU);
+      System.out.println(Menu.EXIT_BUTTON);
       int choice = Input.readIntLimited(1,5);
       switch (choice){
         case 1:
@@ -58,6 +62,10 @@ public class Methods implements Table {
         case 5:
           firstMenu(sc);
           break;
+        case 6 :
+          System.out.println("До свидания!!!");
+          Input.closeFileWithSaving();
+          System.exit(0);
       }
     }
   }
@@ -276,17 +284,17 @@ public class Methods implements Table {
 
   public static void sortOnCategory() {
     tasks.sort(new TaskByCategoryComparator());
-    printTaskList();
+
   }
 
   public static void sortOnPriority() {
     tasks.sort(new TaskByPriorityComparator());
-    printTaskList();
+
   }
 
   public static void sortDate() {
     tasks.sort(new TaskByPlaneDateComparator());
-    printTaskList();
+
   }
 
   public static void sortIsDone() {
