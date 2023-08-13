@@ -14,6 +14,7 @@ public class Methods implements Table {
     Methods.printTaskList();
     while (true) {
       System.out.println(Menu.SHOW_FIRST_MENU);
+      System.out.println();
       System.out.println(Menu.EXIT_BUTTON);
       int choice = Input.readIntLimited(1,5);
       switch (choice) {
@@ -44,6 +45,7 @@ public class Methods implements Table {
     while (true){
       Methods.printTaskList();
       System.out.println(Menu.SHOW_SORT_MENU);
+      System.out.println();
       System.out.println(Menu.EXIT_BUTTON);
       int choice = Input.readIntLimited(1,5);
       switch (choice){
