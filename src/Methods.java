@@ -24,12 +24,15 @@ public class Methods implements Table {
           addTask(sc);
           break;
         case 3:
-          correctingTask(sc);
+          sortMenu(sc);
           break;
         case 4:
-          remove(sc);
+        correctingTask(sc);
           break;
         case 5:
+          remove(sc);
+          break;
+        case 6 :
           System.out.println("До свидания!!!");
           Input.closeFileWithSaving();
           System.exit(0);
