@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,22 +10,10 @@ public class Methods implements Table {
   static List<Task> tasks = Input.arrayList;
   Scanner sc = new Scanner(System.in);
 
-  public static void menu(Scanner sc) throws IOException {
-
-    System.out.println("Добро пожаловать в программу ");
+  public static void firstMenu(Scanner sc) throws IOException {
 
     while (true) {
-      System.out.println("""
-          1. Изменить состояние задачи (выполнена/не выполнена)
-          2. Распечатать список задач
-          3. Добавить новую задачу
-          4. Редактировать задачу
-          5. Отсортировать задачи по категориям
-          6. Отсортировать задачи по приоритету
-          7. Отсортировать задачи по дате исполнения
-          8. Удалить задачу
-          9. Выход из программы
-          """);
+      System.out.println(Menu.SHOW_FIRST_MENU);
       int choice = sc.nextInt();
       sc.nextLine();
       switch (choice) {
@@ -34,34 +21,41 @@ public class Methods implements Table {
           changeTaskStatus(sc);
           break;
         case 2:
-          printTaskList();
-          System.out.println();
-          break;
-        case 3:
           addTask(sc);
           break;
-        case 4:
+        case 3:
           correctingTask(sc);
           break;
-        case 5:
-          sortOnCategory();
-          break;
-        case 6:
-          sortOnPriority();
-          break;
-        case 7:
-          sortDate();
-          break;
-        case 8:
+        case 4:
           remove(sc);
           break;
-        case 9:
+        case 5:
           System.out.println("До свидания!!!");
           Input.closeFileWithSaving();
           System.exit(0);
       }
     }
 
+  }
+  public static void sortMenu(Scanner sc) throws IOException {
+    while (true){
+      int choice = sc.nextInt();
+      sc.nextLine();
+      switch (choice){
+        case 1:
+          sortOnCategory();
+          break;
+        case 2:
+          sortOnPriority();
+          break;
+        case 3:
+          sortDate();
+          break;
+        case 4:
+          firstMenu(sc);
+        break;
+      }
+    }
   }
 
   public static void changeTaskStatus(Scanner sc) {
