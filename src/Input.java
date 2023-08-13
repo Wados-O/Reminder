@@ -60,6 +60,15 @@ public class Input extends ColorsSet {
     return num;
   }
 
+  /**
+   * Проверка на содержания символов
+   * @param input
+   * @return
+   */
+  private static boolean containsNumbers(String input) {
+    return input.matches(".*\\d+.*");
+  }
+
   public static void closeFileWithSaving() throws IOException {
     FileWriter outFile = new FileWriter(ourFile);
 
