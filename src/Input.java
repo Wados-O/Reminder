@@ -14,7 +14,7 @@ public class Input {
 
   public static void readTaskFromFile() throws IOException {
     File file = new File(ourFile);
-    if (ourFile.length() == 0) {
+    if (!file.exists() || file.length() == 0) {
       return;
     }
     Scanner scanner = new Scanner(file);
@@ -22,26 +22,30 @@ public class Input {
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] cells = line.split(SEP);
-      String title = cells[0];
-      String message = cells[1];
-//todo сделать проверку
-      Category category = Category.valueOf(cells[2]);
-      Priority priority = Priority.valueOf(cells[3]);
-      Date planeDate = DataConvert.parseDate(cells[2]); // Пропущенный код для парсинга даты
-      // TODO: 13.08.2023 ошибка формата времени
-      Date createdDate = DataConvert.parseDate(cells[2]);
-      Task task = new Task(title, message, category, priority, planeDate, createdDate);
-      arrayList.add(task);
+      if (cells.length >= 6) { // Проверка на наличие всех необходимых элементов
+        String title = cells[0];
+        String message = cells[1];
+        Category category = Category.valueOf(cells[2]);
+        Priority priority = Priority.valueOf(cells[3]);
+        Date planeDate = DataConvert.parseDate(cells[4]);
+        Date createdDate = DataConvert.parseDate(cells[5]);
+        if (planeDate != null && createdDate != null) { // Проверка на корректность дат
+          Task task = new Task(title, message, category, priority, planeDate, createdDate);
+          arrayList.add(task);
+        }
+      }
     }
     scanner.close();
   }
+
+
 
   public static void closeFileWithSaving() throws IOException {
     FileWriter outFile = new FileWriter(ourFile);
 
     for (Task task : arrayList) {
       String result = task.getTitle() + SEP + task.getMessage() + SEP + task.getCategory() + SEP
-          + task.getPriority();
+          + task.getPriority() + SEP + DataConvert.formatDate(task.getPlaneDate()) + SEP + DataConvert.formatDate(task.getCreatedDate());
       outFile.write(result + "\n");
     }
     outFile.close();
