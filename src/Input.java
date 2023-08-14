@@ -18,7 +18,6 @@ public class Input extends ColorsSet {
       return;
     }
     Scanner scanner = new Scanner(file);
-
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] cells = line.split(SEP);

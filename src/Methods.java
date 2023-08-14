@@ -48,6 +48,7 @@ public class Methods implements Table {
       System.out.println(Menu.SHOW_SORT_MENU);
       System.out.println();
       System.out.println(Menu.EXIT_BUTTON);
+
       int choice = Input.readIntLimited(1,6);
       switch (choice){
         case 1:
@@ -117,15 +118,7 @@ public class Methods implements Table {
       choiceYesOrNo();
       int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
-        System.out.print("Что вы хотите изменить в задаче, выберите номер из списка: \n");
-        System.out.println("""
-                    1. Название задачи
-                    2. Описание задачи
-                    3. Категория задачи
-                    4. Приоритет задачи
-                    5. Дата исполнения
-                    6. Статус задачи
-                """);
+        System.out.println(Menu.SHOW_MENU_REFACTOR);
         int number = Input.readIntLimited(1, 5);
 
         switch (number) {
@@ -221,6 +214,7 @@ public class Methods implements Table {
       }
     }
     System.out.println(FOOTER);
+    System.out.println("  ");
   }
 
   public static String truncateString(String str, int maxLength) {
