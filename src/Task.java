@@ -9,7 +9,7 @@ public class Task implements Comparable<Task> {
   private String message;
   private Priority priority;
 
-  private final Date planeDate;
+  private Date planeDate;
   private final Date createdDate;
 private boolean isDone;
 
@@ -76,6 +76,11 @@ public void markAsDone(){
   public void setDone(boolean done) {
     isDone = done;
   }
+
+  public void setPlaneDate(Date planeDate) {
+    this.planeDate = planeDate;
+  }
+
   @Override
   public String toString() {
     return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"
