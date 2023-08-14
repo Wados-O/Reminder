@@ -103,7 +103,7 @@ public class Methods implements Table {
     System.out.println();
   }
 
-  public static void correctingTask(Scanner sc) throws IOException{
+  public static void correctingTask(Scanner sc) {
     Intro.speedJump();
     printTaskList();
     System.out.println(ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
@@ -115,7 +115,7 @@ public class Methods implements Table {
       System.out.println();
       printCurrentTask(numberTask);
       System.out.println();
-      choiceYesOrNo(sc);
+      choiceYesOrNo();
       int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
         System.out.println(Menu.SHOW_MENU_REFACTOR);
@@ -141,7 +141,7 @@ public class Methods implements Table {
             tasks.get(indexTask).setPriority(priorityNewTask);
             break;
           case 5:
-            Date correctingDate = choicePlaneDate(sc);
+            Date correctingDate = DataConvert.choicePlaneDate(sc);
             tasks.get(indexTask).setPlaneDate(correctingDate);
             break;
           case 6:
@@ -167,6 +167,8 @@ public class Methods implements Table {
   }
 
   public static void printCurrentTask(int index) {
+
+
     Task task = tasks.get(index);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
     System.out.println(HEADER);
@@ -200,7 +202,7 @@ public class Methods implements Table {
 
     Date createdDate = new Date(); // Текущая дата и время
 
-    Date planeDate = choicePlaneDate(sc);
+    Date planeDate = DataConvert.choicePlaneDate(sc);
 
     boolean isDone = false;
     Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate,
@@ -241,20 +243,17 @@ public class Methods implements Table {
   }
 
 
+  public static void choiceYesOrNo() {
+    List<String> list = new ArrayList<>();
+    System.out.println(ColorsSet.BLACK_BOLD+ ColorsSet.WHITE_BACKGROUND +  "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       " + ColorsSet.RESET);
 
-  public static void choiceYesOrNo(Scanner sc) throws IOException {
-    System.out.println();
-    System.out.println(Menu.SHOW_CHOICE_YES_NO);
-    int choice = Input.readIntLimited(1,2);
-
-    switch (choice) {
-      case 1:
-        correctingTask(sc);
-        break;
-      case 2:
-        firstMenu(sc);
-        break;
+    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.YELLOW_BACKGROUND + "   -  ДА     " + ColorsSet.RESET + "      ");
+    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.PURPLE_BACKGROUND + "   -  НЕТ    " + ColorsSet.RESET + "      ");
+    for (int i = 0; i < list.size(); i++) {
+      int index = i + 1;
+      System.out.println(index + ". " + list.get(i));
     }
+    System.out.println();
   }
 
   public static Priority assigningValuePriority(Scanner sc) {
@@ -302,35 +301,5 @@ public class Methods implements Table {
     printTaskList();
   }
 
-  public static Date choicePlaneDate(Scanner sc) {
-    Date planeDate = null;
-    boolean validDate = false;
 
-    while (!validDate) {
-      System.out.print("Введите дату планируемого выполнения задачи [dd.MM.yyyy] : ");
-      String planeDateStr = sc.nextLine();
-
-      if (planeDateStr.matches("[0-9.,/-]+")) {
-        try {
-          planeDate = DataConvert.parseDate(planeDateStr);
-          Date currentDate = new Date();
-
-          if (planeDate != null && !planeDate.before(currentDate)) {
-            validDate = true;
-          } else if (planeDate != null) {
-            System.out.println(
-                ColorsSet.YELLOW + "Дата не может быть раньше текущей даты." + ColorsSet.RESET);
-          }
-        } catch (NumberFormatException e) {
-          System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]."
-              + ColorsSet.RESET);
-        }
-      } else {
-        System.out.println(ColorsSet.RED_BRIGHT
-            + "Неверный формат даты.Пожалуйста введите время в формате [dd.MM.yyyy]"
-            + ColorsSet.RESET);
-      }
-    }
-    return planeDate;
-  }
 }
