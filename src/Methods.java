@@ -61,7 +61,7 @@ public class Methods implements Table {
           sortOnCategory();
           break;
         case 4:
-          firstMenu(sc);
+          sortIsDone();
         break;
         case 5:
           firstMenu(sc);
