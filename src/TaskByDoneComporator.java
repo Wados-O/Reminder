@@ -4,9 +4,9 @@ public class TaskByDoneComporator implements Comparator<Task> {
 
   @Override
   public int compare(Task task1, Task task2) {
-    if (task1.isDone() && !task2.isDone()) {
+    if (task2.isDone() && !task1.isDone()) {
       return -1;
-    } else if (!task1.isDone() && task2.isDone()) {
+    } else if (!task2.isDone() && task1.isDone()) {
       return 1;
     }
       return 0;
