@@ -77,7 +77,7 @@ public class Methods implements Table {
   public static void changeTaskStatus(Scanner sc) {
     Intro.speedJump();
     printTaskList();
-    System.out.println("Введите номер задачи, состояние которой вы хотите изменить:");
+    System.out.println(ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:" + ColorsSet.RESET);
     int numberTask = Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
     System.out.println("Выберите новое состояние задачи:");
@@ -87,7 +87,9 @@ public class Methods implements Table {
 
     boolean newStatus = (statusChoice == 1);
     tasks.get(indexTask).setDone(newStatus);
+    Intro.speedJump();
     System.out.println(ColorsSet.YELLOW + "Состояние задачи успешно изменено." + ColorsSet.RESET);
+
     printTaskList();
   }
 
@@ -260,10 +262,8 @@ public class Methods implements Table {
   }
 
   public static Priority assigningValuePriority(Scanner sc) {
-    System.out.print("Выберите номер приоритета задачи из списка: ");
-    for (Priority priority : Priority.values()) {
-      System.out.println("\n" + priority.getNum() + ". " + priority.getPriority());
-    }
+
+    System.out.println(Menu.SHOW_PRIORITY_CHOICE);
     int choiceForPriority = Input.readIntLimited(1, 3);
     Priority priorityNewTask = null;
     for (Priority priority : Priority.values()) {

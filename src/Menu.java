@@ -9,7 +9,7 @@ public class Menu extends ColorsSet{
 
 public static final String EXIT_BUTTON = ""
     +  GREEN + "СОХРАНИТЬ И ВЫЙТИ:    "
-    + GREEN_BACKGROUND + WHITE_BOLD_BRIGHT + "6 - EXIT " + RESET;
+    + GREEN_BACKGROUND + WHITE_BOLD_BRIGHT + "  6 - EXIT   " + RESET;
   public static final String SHOW_FIRST_MENU = ""
       + YELLOW+ "ОСНОВНОЕ МЕНЮ:     "
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  1 - ИЗМЕНИТЬ СОСТОЯНИЯ " + RESET + "      "
@@ -18,6 +18,11 @@ public static final String EXIT_BUTTON = ""
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  4 -  ИЗМЕНИТЬ   ЗАДАЧУ " + RESET + "      "
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  5 -  УДАЛИТЬ  ЗАДАЧУ   " + RESET + "      ";
 
+  public static final String SHOW_PRIORITY_CHOICE = " "
+      + YELLOW + "УКАЖИТЕ ПРИОРИТЕТ ЗАДАЧИ:   " + RESET
+      + WHITE_BOLD_BRIGHT + RED_BACKGROUND + " 1 - ВЫСОКИЙ  " + RESET + "    "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 2 - СРЕДНИЙ  " + RESET+ "    "
+      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + " 3 - ОБЫЧНЫЙ  " + RESET+ "    " ;
   public static final String SHOW_SORT_MENU = ""
       + BLUE + "МЕНЮ СОРТИРОВКИ:     " + RESET 
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  1 -   ПО  ДАТЕ    " + RESET + "      "
