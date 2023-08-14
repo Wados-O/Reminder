@@ -97,7 +97,7 @@ public class Methods implements Table {
     printTaskList();
     System.out.println("Введите номер задачи, которую хотите удалить:");
     int numberTask =  Input.readIntLimited(1, tasks.size());
-    int indexTask = numberTask - 1;
+    int indexTask = numberTask  - 1;
     tasks.remove(indexTask);
     printTaskList();
     System.out.println();
@@ -169,7 +169,7 @@ public class Methods implements Table {
   public static void printCurrentTask(int index) {
 
 
-    Task task = tasks.get(index);
+    Task task = tasks.get(index -1);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
     System.out.println(HEADER);
 
@@ -180,7 +180,7 @@ public class Methods implements Table {
     String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
     String status = task.isDone() ? "      ✔️       " : "      ❌       ";
 
-    System.out.printf(format, index + 1, title, message, categoryName, priority, dateString, status);
+    System.out.printf(format, index , title, message, categoryName, priority, dateString, status);
     System.out.println(FOOTER);
     System.out.println();
   }
