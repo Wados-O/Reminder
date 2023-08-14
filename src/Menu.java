@@ -46,7 +46,7 @@ public class Menu extends ColorsSet {
       + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + " 5 - ДАТУ ИСПОЛНЕНИЯ " + RESET + "     "
       + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "  6 -  СТАТУС   " + RESET + "        ";
 public static final String SHOW_CHOICE_YES_NO = " "
-    +BLACK_BOLD+ WHITE_BACKGROUND +  "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       "  +  "        "
-    + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + "   2 - СРЕДНИЙ    " + RESET + "      "
-    + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   3 - ОБЫЧНЫЙ    " + RESET + "      ";
+    +BLACK_BOLD+ WHITE_BACKGROUND +  "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       " + RESET +  "           "
+    + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   1  -  ДА     " + RESET + "      "
+    + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "   3  -  НЕТ    " + RESET + "      ";
 }
