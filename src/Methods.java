@@ -94,11 +94,12 @@ public class Methods implements Table {
   }
 
   public static void remove(Scanner sc) {
-    System.out.println("Введите номер задачи, которую хотите удалить:");
     printTaskList();
+    System.out.println("Введите номер задачи, которую хотите удалить:");
     int numberTask =  Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
     tasks.remove(indexTask);
+    printTaskList();
     System.out.println();
   }
 
@@ -156,11 +157,13 @@ public class Methods implements Table {
             tasks.get(indexTask).setDone(isDone);
             break;
           default:
+            printTaskList();
             break;
         }
       }
 
       if (choice == 2) {
+        printTaskList();
         break;
       }
     }

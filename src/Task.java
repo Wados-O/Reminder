@@ -80,7 +80,7 @@ public void markAsDone(){
   public String toString() {
     return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"
         + category + "\'" + " Приоритет: '" + priority + "\'" + " Добавлено "
-        + createdDate;
+        + createdDate + "\'" + planeDate;
   }
 
   @Override
