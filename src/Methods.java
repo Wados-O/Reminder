@@ -17,7 +17,7 @@ public class Methods implements Table {
       System.out.println(Menu.SHOW_FIRST_MENU);
       System.out.println();
       System.out.println(Menu.EXIT_BUTTON);
-      int choice = Input.readIntLimited(1,5);
+      int choice = Input.readIntLimited(1,6);
       switch (choice) {
         case 1:
           changeTaskStatus(sc);
