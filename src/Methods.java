@@ -49,7 +49,7 @@ public class Methods implements Table {
       System.out.println(Menu.SHOW_SORT_MENU);
       System.out.println();
       System.out.println(Menu.EXIT_BUTTON);
-      int choice = Input.readIntLimited(1,5);
+      int choice = Input.readIntLimited(1,6);
       switch (choice){
         case 1:
           sortDate();
@@ -115,8 +115,7 @@ public class Methods implements Table {
           + "\nВы хотите что-либо изменить в задаче? Выберите нужный пункт: \n");
       System.out.println();
       choiceYesOrNo();
-      int choice = sc.nextInt();
-      sc.nextLine();
+      int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
         System.out.print("Что вы хотите изменить в задаче, выберите номер из списка: \n");
         System.out.println("""
@@ -126,8 +125,8 @@ public class Methods implements Table {
                     4. Приоритет задачи
                     5. Статус задачи
                 """);
-        int number = sc.nextInt();
-        sc.nextLine();
+        int number = Input.readIntLimited(1, 5);
+
         switch (number) {
           case 1:
             System.out.println("Введите новое название задачи:");
@@ -217,7 +216,8 @@ public class Methods implements Table {
     Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate,
         isDone);
     tasks.add(task);
-    System.out.println("Задача добавлена.");
+    printTaskList();
+    System.out.println(ColorsSet.CYAN + "Задача добавлена." +ColorsSet.RESET);
   }
 
   public static void printTaskList() {
@@ -275,10 +275,7 @@ public class Methods implements Table {
   }
 
   public static Category assigningValueCategory(Scanner sc) {
-    System.out.print("Выберите номер категории задачи из списка: ");
-    for (Category category : Category.values()) {
-      System.out.println("\n" + category.getNum() + ". " + category.getNameCategory());
-    }
+    System.out.println(Menu.SHOW_CATEGORY_MENU);
     int choiceFromCategory = Input.readIntLimited(1, 5);
     Category categoryNewTask = null;
     for (Category category : Category.values()) {
