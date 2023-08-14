@@ -103,7 +103,7 @@ public class Methods implements Table {
     System.out.println();
   }
 
-  public static void correctingTask(Scanner sc) {
+  public static void correctingTask(Scanner sc) throws IOException{
     Intro.speedJump();
     printTaskList();
     System.out.println(ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
@@ -115,7 +115,7 @@ public class Methods implements Table {
       System.out.println();
       printCurrentTask(numberTask);
       System.out.println();
-      choiceYesOrNo();
+      choiceYesOrNo(sc);
       int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
         System.out.println(Menu.SHOW_MENU_REFACTOR);
@@ -242,6 +242,20 @@ public class Methods implements Table {
 
 
 
+  public static void choiceYesOrNo(Scanner sc) throws IOException {
+    System.out.println();
+    System.out.println(Menu.SHOW_CHOICE_YES_NO);
+    int choice = Input.readIntLimited(1,2);
+
+    switch (choice) {
+      case 1:
+        correctingTask(sc);
+        break;
+      case 2:
+        firstMenu(sc);
+        break;
+    }
+  }
 
   public static Priority assigningValuePriority(Scanner sc) {
 

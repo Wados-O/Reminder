@@ -41,8 +41,12 @@ public class Menu extends ColorsSet {
       +BLACK_BOLD+ WHITE_BACKGROUND + "  ЧТО ВЫ ХОТИТЕ ИЗМЕНИТЬ?        " + RESET
       + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "  1 - НАЗВАНИЯ  " + RESET + "        "
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  2 - ОПИСАНИЯ  " + RESET + "        "
-      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "  3 - КАТИГОРИЮ " + RESET + "        "
-      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + "  4 - ПРИОРИТЕТ " + RESET + "     "
+      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "  3 - КАТИГОРИЮ " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + "  4 - ПРИОРИТЕТ " + RESET + "       "
       + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + " 5 - ДАТУ ИСПОЛНЕНИЯ " + RESET + "     "
       + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "  6 -  СТАТУС   " + RESET + "        ";
+public static final String SHOW_CHOICE_YES_NO = " "
+    +BLACK_BOLD+ WHITE_BACKGROUND +  "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       "  +  "        "
+    + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + "   2 - СРЕДНИЙ    " + RESET + "      "
+    + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   3 - ОБЫЧНЫЙ    " + RESET + "      ";
 }
