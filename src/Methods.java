@@ -106,20 +106,20 @@ public class Methods implements Table {
   public static void correctingTask(Scanner sc) {
     Intro.speedJump();
     printTaskList();
-    System.out.println("Введите номер задачи, которую хотите изменить:");
+    System.out.println(ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
     int numberTask =  Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
 
     while (true) {
-      System.out.print("Ваша задача: " + tasks.get(indexTask).toString()
-          + "\nВы хотите что-либо изменить в задаче? Выберите нужный пункт: \n");
+      System.out.println();
+      printCurrentTask(numberTask);
       System.out.println();
       choiceYesOrNo();
       int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
         System.out.println(Menu.SHOW_MENU_REFACTOR);
-        int number = Input.readIntLimited(1, 5);
+        int number = Input.readIntLimited(1, 6);
 
         switch (number) {
           case 1:
@@ -146,8 +146,8 @@ public class Methods implements Table {
             break;
           case 6:
             System.out.println("Выберите статус задачи:");
-            System.out.println("1. Выполнено");
-            System.out.println("2. Не выполнено");
+            System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
+            System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
             int statusChoice = Input.readIntLimited(1, 2);
 
             boolean isDone = (statusChoice == 1);
@@ -166,6 +166,22 @@ public class Methods implements Table {
     }
   }
 
+  public static void printCurrentTask(int index) {
+    Task task = tasks.get(index);
+    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
+    System.out.println(HEADER);
+
+    String title = truncateString(task.getTitle(), 20);
+    String message = truncateString(task.getMessage(), 58);
+    String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
+    String priority = truncateString(task.getPriority().getPriority(), 24);
+    String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+    String status = task.isDone() ? "      ✔️       " : "      ❌       ";
+
+    System.out.printf(format, index + 1, title, message, categoryName, priority, dateString, status);
+    System.out.println(FOOTER);
+    System.out.println();
+  }
   public static void addTask(Scanner sc) throws IOException {
 //    System.out.print("Выберите приоритет задачи: ");
 //    int number = sc.nextInt();
@@ -225,16 +241,7 @@ public class Methods implements Table {
   }
 
 
-  public static void choiceYesOrNo() {
-    List<String> list = new ArrayList<>();
-    list.add("Да");
-    list.add("Нет");
-    for (int i = 0; i < list.size(); i++) {
-      int index = i + 1;
-      System.out.println(index + ". " + list.get(i));
-    }
-    System.out.println();
-  }
+
 
   public static Priority assigningValuePriority(Scanner sc) {
 
