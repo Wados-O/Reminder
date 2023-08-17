@@ -20,11 +20,4 @@ private String nameCategory;
   return nameCategory;
  }
 
-// @Override
-// public String toString() {
-//  return "Category{" +
-//         "num=" + num +
-//         ", nameCategory='" + nameCategory + '\'' +
-//         '}';
-// }
 }

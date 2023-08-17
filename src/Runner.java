@@ -17,11 +17,6 @@ public class Runner {
     Intro.speedJump();
     Intro.speedJump();
     Input.readTaskFromFile();
-//    System.out.println(Menu.SHOW_MENU_REFACTOR);
-//    System.out.println(Menu.SHOW_CATEGORY_MENU);
-//    System.out.println(Menu.SHOW_PRIORITY_CHOICE);
-//    System.out.println(Menu.SHOW_SORT_MENU);
-
     Methods.firstMenu(new Scanner(System.in));
   }
 }
