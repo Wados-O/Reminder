@@ -11,38 +11,7 @@ public class Methods implements Table {
   Scanner sc = new Scanner(System.in);
 
 
-  public static void sortMenu(Scanner sc) throws IOException {
-    while (true){
-      Intro.speedJump();
-      Methods.printTaskList();
-      System.out.println(Panel.SHOW_SORT_MENU);
-      System.out.println();
-      System.out.println(Panel.EXIT_BUTTON);
 
-      int choice = Input.readIntLimited(1,6);
-      switch (choice){
-        case 1:
-          sortDate();
-          break;
-        case 2:
-          sortOnPriority();
-          break;
-        case 3:
-          sortOnCategory();
-          break;
-        case 4:
-          sortIsDone();
-        break;
-        case 5:
-          firstMenu(sc);
-          break;
-        case 6 :
-          System.out.println("До свидания!!!");
-          Input.closeFileWithSaving();
-          System.exit(0);
-      }
-    }
-  }
 
   public static void changeTaskStatus(Scanner sc) {
     Intro.speedJump();
