@@ -1,10 +1,11 @@
+import java.awt.Menu;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Methods implements Table {
+public class Methods  implements Table {
 
   private Input input;
   static List<Task> tasks = Input.arrayList;
@@ -124,13 +125,7 @@ public class Methods implements Table {
     System.out.println();
   }
   public static void addTask(Scanner sc) throws IOException {
-//    System.out.print("Выберите приоритет задачи: ");
-//    int number = sc.nextInt();
-//    sc.nextLine();
-//    System.out.print("Выберите номер приоритета: ");
-//    int priority = Integer.parseInt(sc.nextLine());
-//    sc.nextLine();
-    //todo добавить проверку на актуальность даты
+
     Priority priorityNewTask = assigningValuePriority(sc);
     Category categoryNewTask = assigningValueCategory(sc);
 
@@ -139,7 +134,7 @@ public class Methods implements Table {
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
 
-    Date createdDate = new Date(); // Текущая дата и время
+    Date createdDate = new Date();
 
     Date planeDate = DataConvert.choicePlaneDate(sc);
 
