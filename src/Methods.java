@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 public class Methods  implements Table {
 
-  private Input input;
   static List<Task> tasks = Input.arrayList;
-  Scanner sc = new Scanner(System.in);
+
 
 
 
@@ -215,25 +214,6 @@ public class Methods  implements Table {
     return categoryNewTask;
   }
 
-  public static void sortOnCategory() {
-    tasks.sort(new TaskByCategoryComparator());
-
-  }
-
-  public static void sortOnPriority() {
-    tasks.sort(new TaskByPriorityComparator());
-
-  }
-
-  public static void sortDate() {
-    tasks.sort(new TaskByPlaneDateComparator());
-
-  }
-
-  public static void sortIsDone() {
-    tasks.sort(new TaskByDoneComporator());
-    printTaskList();
-  }
 
 
 }

@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu extends Methods {
+public class Menu extends Methods  {
     /**
      * FistMenu has choice what
      * need to do
@@ -56,16 +56,16 @@ public class Menu extends Methods {
             int choice = Input.readIntLimited(1,6);
             switch (choice){
                 case 1:
-                    sortDate();
+                    SortsSource.sortDate();
                     break;
                 case 2:
-                    sortOnPriority();
+                    SortsSource.sortOnPriority();
                     break;
                 case 3:
-                    sortOnCategory();
+                    SortsSource.sortOnCategory();
                     break;
                 case 4:
-                    sortIsDone();
+                    SortsSource.sortIsDone();
                     break;
                 case 5:
                     firstMenu(sc);
