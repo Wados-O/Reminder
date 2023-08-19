@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu extends Methods  {
+public class Menu extends TaskOperation {
     /**
      * FistMenu has choice what
      * need to do
@@ -10,7 +10,7 @@ public class Menu extends Methods  {
      */
     public static void firstMenu(Scanner sc) throws IOException {
         Intro.speedJump();
-        Methods.printTaskList();
+        TaskOperation.printTaskList();
         while (true) {
             System.out.println(Panel.SHOW_FIRST_MENU);
             System.out.println();
@@ -48,7 +48,7 @@ public class Menu extends Methods  {
     public static void sortMenu(Scanner sc) throws IOException {
         while (true){
             Intro.speedJump();
-            Methods.printTaskList();
+            TaskOperation.printTaskList();
             System.out.println(Panel.SHOW_SORT_MENU);
             System.out.println();
             System.out.println(Panel.EXIT_BUTTON);

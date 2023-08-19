@@ -1,11 +1,10 @@
-import java.awt.Menu;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Methods  implements Table {
+public class TaskOperation implements Table {
 
   static List<Task> tasks = Input.arrayList;
 
@@ -105,24 +104,6 @@ public class Methods  implements Table {
     }
   }
 
-  public static void printCurrentTask(int index) {
-
-
-    Task task = tasks.get(index -1);
-    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
-    System.out.println(HEADER);
-
-    String title = truncateString(task.getTitle(), 20);
-    String message = truncateString(task.getMessage(), 58);
-    String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
-    String priority = truncateString(task.getPriority().getPriority(), 24);
-    String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-    String status = task.isDone() ? "      ✔️       " : "      ❌       ";
-
-    System.out.printf(format, index , title, message, categoryName, priority, dateString, status);
-    System.out.println(FOOTER);
-    System.out.println();
-  }
   public static void addTask(Scanner sc) throws IOException {
 
     Priority priorityNewTask = assigningValuePriority(sc);
@@ -145,6 +126,34 @@ public class Methods  implements Table {
     System.out.println(ColorsSet.CYAN + "Задача добавлена." +ColorsSet.RESET);
   }
 
+  /**
+   * Print current task use if
+   * need get task for delete or change
+   * @param index
+   */
+  public static void printCurrentTask(int index) {
+
+
+    Task task = tasks.get(index -1);
+    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
+    System.out.println(HEADER);
+
+    String title = truncateString(task.getTitle(), 20);
+    String message = truncateString(task.getMessage(), 58);
+    String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
+    String priority = truncateString(task.getPriority().getPriority(), 24);
+    String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+    String status = task.isDone() ? "      ✔️       " : "      ❌       ";
+
+    System.out.printf(format, index , title, message, categoryName, priority, dateString, status);
+    System.out.println(FOOTER);
+    System.out.println();
+  }
+
+  /**
+   * this method use to print
+   * all tasks in task list
+   */
   public static void printTaskList() {
     System.out.println(HEADER);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";

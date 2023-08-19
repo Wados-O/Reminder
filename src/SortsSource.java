@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Scanner;
 
 public class SortsSource  {
     static List<Task> tasks = Input.arrayList;
@@ -36,7 +35,7 @@ public class SortsSource  {
      */
     public static void sortIsDone() {
         tasks.sort(new TaskByDoneComporator());
-        Methods.printTaskList();
+        TaskOperation.printTaskList();
     }
 
 }
