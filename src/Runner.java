@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Runner {
+public class Runner extends Menu{
 
   public static void main(String[] args) throws IOException {
 
@@ -17,6 +17,6 @@ public class Runner {
     Intro.speedJump();
     Intro.speedJump();
     Input.readTaskFromFile();
-    Methods.firstMenu(new Scanner(System.in));
+    firstMenu(new Scanner(System.in));
   }
 }
