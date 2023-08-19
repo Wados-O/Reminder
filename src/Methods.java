@@ -10,44 +10,14 @@ public class Methods implements Table {
   static List<Task> tasks = Input.arrayList;
   Scanner sc = new Scanner(System.in);
 
-  public static void firstMenu(Scanner sc) throws IOException {
-    Intro.speedJump();
-    Methods.printTaskList();
-    while (true) {
-      System.out.println(Menu.SHOW_FIRST_MENU);
-      System.out.println();
-      System.out.println(Menu.EXIT_BUTTON);
-      int choice = Input.readIntLimited(1,6);
-      switch (choice) {
-        case 1:
-          changeTaskStatus(sc);
-          break;
-        case 2:
-          addTask(sc);
-          break;
-        case 3:
-          sortMenu(sc);
-          break;
-        case 4:
-        correctingTask(sc);
-          break;
-        case 5:
-          remove(sc);
-          break;
-        case 6 :
-          System.out.println("До свидания!!!");
-          Input.closeFileWithSaving();
-          System.exit(0);
-      }
-    }
-  }
+
   public static void sortMenu(Scanner sc) throws IOException {
     while (true){
       Intro.speedJump();
       Methods.printTaskList();
-      System.out.println(Menu.SHOW_SORT_MENU);
+      System.out.println(Panel.SHOW_SORT_MENU);
       System.out.println();
-      System.out.println(Menu.EXIT_BUTTON);
+      System.out.println(Panel.EXIT_BUTTON);
 
       int choice = Input.readIntLimited(1,6);
       switch (choice){
@@ -118,7 +88,7 @@ public class Methods implements Table {
       choiceYesOrNo();
       int choice = Input.readIntLimited(1, 2);
       if (choice == 1) {
-        System.out.println(Menu.SHOW_MENU_REFACTOR);
+        System.out.println(Panel.SHOW_MENU_REFACTOR);
         int number = Input.readIntLimited(1, 6);
 
         switch (number) {
@@ -258,7 +228,7 @@ public class Methods implements Table {
 
   public static Priority assigningValuePriority(Scanner sc) {
 
-    System.out.println(Menu.SHOW_PRIORITY_CHOICE);
+    System.out.println(Panel.SHOW_PRIORITY_CHOICE);
     int choiceForPriority = Input.readIntLimited(1, 3);
     Priority priorityNewTask = null;
     for (Priority priority : Priority.values()) {
@@ -270,7 +240,7 @@ public class Methods implements Table {
   }
 
   public static Category assigningValueCategory(Scanner sc) {
-    System.out.println(Menu.SHOW_CATEGORY_MENU);
+    System.out.println(Panel.SHOW_CATEGORY_MENU);
     int choiceFromCategory = Input.readIntLimited(1, 5);
     Category categoryNewTask = null;
     for (Category category : Category.values()) {
