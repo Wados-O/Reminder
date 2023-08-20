@@ -1,8 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
@@ -13,9 +11,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-import java.util.function.BooleanSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -84,17 +79,24 @@ public class TestInput {
     assertEquals(DataConvert.parseDate(String.valueOf(LocalDate.now())), task.getCreatedDate());
     assertFalse(task.isDone());
 
-    testFile.delete();
+    assertTrue(testFile.delete());
   }
 
-  @Test
-  public void readTaskIncorrectFromFile() {
-    String title = "title";
-    String message = "message";
-    Category category = Category.PERSONAL;
-    Priority priority = Priority.HIGH;
-    Date planeDate = DataConvert.parseDate("15/09/2023");
-    Date createdDate = DataConvert.parseDate(String.valueOf(LocalDate.now()));
-    Boolean isDone = false;
-  }
+//  @Test
+//  public void readTaskIncorrectFromFile() {
+//    String title = "title";
+//    String message = "message";
+//    Category category = Category.PERSONAL;
+//    Priority priority = Priority.HIGH;
+//    Date planeDate = DataConvert.parseDate("15/09/2023");
+//    Date createdDate = DataConvert.parseDate(String.valueOf(LocalDate.now()));
+//    Boolean isDone = false;
+//  }
+
+//  @Test
+//  public void closeFileWithSaving() {
+////    FileWriter fileWriter;
+////    String expected = "Title;;; Message;;; WORK;;; MEDIUM;;; 14.09.2023;;; 20.08.2023;;; true";
+//    FileWriter fileWriterMock = mock
+//  }
 }
