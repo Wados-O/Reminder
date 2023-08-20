@@ -41,7 +41,7 @@ class TaskOperationTests {
 
     int number = 1;
     int indexTasks = number - 1;
-    tasks.remove(indexTasks);
+    TaskOperation.remove(scanner);
 
     assertEquals(1, tasks.size());
     assertFalse(tasks.isEmpty());
