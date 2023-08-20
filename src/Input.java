@@ -39,7 +39,7 @@ public class Input extends ColorsSet {
   }
 
   /**
-   * проверка неправильного вода только цифры
+   * проверка неправильного ввода только цифры
    *
    * @param min
    * @param max
@@ -112,5 +112,13 @@ public class Input extends ColorsSet {
       outFile.write(result + "\n");
     }
     outFile.close();
+  }
+
+  public static void setOurFile(String ourFile) {
+    Input.ourFile = ourFile;
+  }
+
+  public static List<Task> getArrayList() {
+    return arrayList;
   }
 }

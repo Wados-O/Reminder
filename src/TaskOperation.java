@@ -8,14 +8,12 @@ public class TaskOperation implements Table {
 
   static List<Task> tasks = Input.arrayList;
 
-
-
-
-
   public static void changeTaskStatus(Scanner sc) {
     Intro.speedJump();
     printTaskList();
-    System.out.println(ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:" + ColorsSet.RESET);
+    System.out.println(
+        ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:"
+            + ColorsSet.RESET);
     int numberTask = Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
     System.out.println("Выберите новое состояние задачи:");
@@ -34,8 +32,8 @@ public class TaskOperation implements Table {
   public static void remove(Scanner sc) {
     printTaskList();
     System.out.println("Введите номер задачи, которую хотите удалить:");
-    int numberTask =  Input.readIntLimited(1, tasks.size());
-    int indexTask = numberTask  - 1;
+    int numberTask = Input.readIntLimited(1, tasks.size());
+    int indexTask = numberTask - 1;
     tasks.remove(indexTask);
     printTaskList();
     System.out.println();
@@ -44,9 +42,10 @@ public class TaskOperation implements Table {
   public static void correctingTask(Scanner sc) {
     Intro.speedJump();
     printTaskList();
-    System.out.println(ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
+    System.out.println(
+        ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
-    int numberTask =  Input.readIntLimited(1, tasks.size());
+    int numberTask = Input.readIntLimited(1, tasks.size());
     int indexTask = numberTask - 1;
 
     while (true) {
@@ -123,18 +122,17 @@ public class TaskOperation implements Table {
         isDone);
     tasks.add(task);
     printTaskList();
-    System.out.println(ColorsSet.CYAN + "Задача добавлена." +ColorsSet.RESET);
+    System.out.println(ColorsSet.CYAN + "Задача добавлена." + ColorsSet.RESET);
   }
 
   /**
-   * Print current task use if
-   * need get task for delete or change
+   * Print current task use if need get task for delete or change
+   *
    * @param index
    */
   public static void printCurrentTask(int index) {
 
-
-    Task task = tasks.get(index -1);
+    Task task = tasks.get(index - 1);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
     System.out.println(HEADER);
 
@@ -142,17 +140,17 @@ public class TaskOperation implements Table {
     String message = truncateString(task.getMessage(), 58);
     String categoryName = truncateString(task.getCategory().getNameCategory(), 24);
     String priority = truncateString(task.getPriority().getPriority(), 24);
-    String dateString = task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
+    String dateString =
+        task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
     String status = task.isDone() ? "      ✔️       " : "      ❌       ";
 
-    System.out.printf(format, index , title, message, categoryName, priority, dateString, status);
+    System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
     System.out.println(FOOTER);
     System.out.println();
   }
 
   /**
-   * this method use to print
-   * all tasks in task list
+   * this method use to print all tasks in task list
    */
   public static void printTaskList() {
     System.out.println(HEADER);
@@ -187,10 +185,14 @@ public class TaskOperation implements Table {
 
   public static void choiceYesOrNo() {
     List<String> list = new ArrayList<>();
-    System.out.println(ColorsSet.BLACK_BOLD+ ColorsSet.WHITE_BACKGROUND +  "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       " + ColorsSet.RESET);
+    System.out.println(
+        ColorsSet.BLACK_BOLD + ColorsSet.WHITE_BACKGROUND + "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       "
+            + ColorsSet.RESET);
 
-    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.YELLOW_BACKGROUND + "   -  ДА     " + ColorsSet.RESET + "      ");
-    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.PURPLE_BACKGROUND + "   -  НЕТ    " + ColorsSet.RESET + "      ");
+    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.YELLOW_BACKGROUND + "   -  ДА     "
+        + ColorsSet.RESET + "      ");
+    list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.PURPLE_BACKGROUND + "   -  НЕТ    "
+        + ColorsSet.RESET + "      ");
     for (int i = 0; i < list.size(); i++) {
       int index = i + 1;
       System.out.println(index + ". " + list.get(i));
@@ -222,7 +224,6 @@ public class TaskOperation implements Table {
     }
     return categoryNewTask;
   }
-
 
 
 }
