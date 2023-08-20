@@ -1,10 +1,11 @@
 public enum Priority {
+
   HIGH(1, ColorsSet.RED + "ВЫСОКИЙ " + ColorsSet.RESET),
-  MEDIUM(2, ColorsSet.YELLOW+ "СРЕДНИЙ" + ColorsSet.RESET),
-  LOW(3, ColorsSet.GREEN + "НИЗКИЙ" + ColorsSet.RESET),
-      ;
-private int num;
-private String priority;
+  MEDIUM(2, ColorsSet.YELLOW + "СРЕДНИЙ" + ColorsSet.RESET),
+  LOW(3, ColorsSet.GREEN + "НИЗКИЙ" + ColorsSet.RESET);
+
+  private int num;
+  private String priority;
 
   Priority(int num, String priority) {
     this.num = num;
@@ -18,6 +19,4 @@ private String priority;
   public String getPriority() {
     return priority;
   }
-
-
 }

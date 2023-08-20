@@ -21,11 +21,10 @@ public class DataConvert {
       } else if (dateStr.contains("/")) {
         return dateFormatSlash.parse(dateStr);
       } else {
-        System.out.println(ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
+        System.out.println(
+            ColorsSet.YELLOW + "Неверный формат даты. Используйте [dd.MM.yyyy]." + ColorsSet.RESET);
         return null;
       }
-
-
     } catch (ParseException e) {
       e.printStackTrace();
       return null;
@@ -63,6 +62,7 @@ public class DataConvert {
     }
     return planeDate;
   }
+
   public static String formatDate(Date date) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     return dateFormat.format(date);

@@ -17,6 +17,7 @@ public class Input extends ColorsSet {
     if (!file.exists() || file.length() == 0) {
       return;
     }
+
     Scanner scanner = new Scanner(file);
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
@@ -60,7 +61,6 @@ public class Input extends ColorsSet {
         System.out.printf("Введите число от %d до %d:", min, max);
         System.out.println(RESET);
       }
-
     } while (!(num >= min && num <= max));
     return num;
   }
@@ -100,7 +100,6 @@ public class Input extends ColorsSet {
   private static boolean containsNumbers(String input) {
     return input.matches(".*\\d+.*");
   }
-
 
   public static void closeFileWithSaving() throws IOException {
     FileWriter outFile = new FileWriter(ourFile);

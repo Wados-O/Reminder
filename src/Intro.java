@@ -1,10 +1,11 @@
 public class Intro extends ColorsSet {
+
   /**
    * logo to the project
    * used the colors from Style
    * created by author Vadim Mejinschii
    */
-  public static void logoTeam(){
+  public static void logoTeam() {
   System.out.println("   ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮");
   System.out.println("   │                                                                                                                                       │");
   Suspend.thirdSuspend();
@@ -45,7 +46,8 @@ public class Intro extends ColorsSet {
   System.out.println("   ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯");
   Suspend.longSuspend();
  }
-  public static void logoPresents(){
+
+  public static void logoPresents() {
     Suspend.forthSuspend();
     System.out.println( YELLOW + "                       oooooooooo  oooooooooo   ooooooooooo   oooooooo8  ooooooooooo  oooo   oooo  ooooooooooo   oooooooo8  " + RESET );
     Suspend.forthSuspend();
@@ -57,7 +59,8 @@ public class Intro extends ColorsSet {
     Suspend.forthSuspend();
     System.out.println( YELLOW + "                       o888o       o888o  88o8  o888ooo8888  o88oooo888  o888ooo8888  o88o    88      o888o     o88oooo888  " + RESET );
   }
-  public static void logoProject(){
+
+  public static void logoProject() {
     Suspend.secondSuspend();
     System.out.println("        " + BLUE +"             ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄    ▄       ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ " + RESET + "           ");
     Suspend.secondSuspend();
@@ -83,18 +86,21 @@ public class Intro extends ColorsSet {
     Suspend.secondSuspend();
     System.out.println("        " + BLUE +"                                                                                                                    " + RESET + "           ");
   }
-  public static void emptyPlace(){
+
+  public static void emptyPlace() {
     for (int i = 0; i < 10; i++) {
       Suspend.thirdSuspend();
       System.out.println("                                                                         ");
     }
   }
-  public static void speedJump(){
+
+  public static void speedJump() {
     for (int i = 0; i < 45; i++) {
       System.out.println("       ");
     }
   }
-  public static void stringLoading(){
+
+  public static void stringLoading() {
     System.out.print(RED_BACKGROUND +"LOADING");
     for (int i = 0; i < 5; i++) {
       Suspend.secondSuspend();
@@ -102,7 +108,8 @@ public class Intro extends ColorsSet {
     }
     System.out.println(RESET);
   }
-  public static void stringDownload(){
+
+  public static void stringDownload() {
     System.out.print(RED_BACKGROUND + "DOWNLOAD SYSTEM FILES ");
     for (int i = 0; i < 7; i++) {
       Suspend.secondSuspend();

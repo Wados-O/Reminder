@@ -1,10 +1,10 @@
 public class ColorsSet {
+
   /**
    * Colors and style to project
    * Use in every unclear situation!!!
  **/
   public static final String RESET = "\033[0m";  // Text Reset
-
 
   // Regular Colors
   public static final String BLACK = "\033[0;30m";   // BLACK
@@ -76,5 +76,4 @@ public class ColorsSet {
   public static final String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m"; // PURPLE
   public static final String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
   public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
-
 }

@@ -182,7 +182,6 @@ public class TaskOperation implements Table {
     return str;
   }
 
-
   public static void choiceYesOrNo() {
     List<String> list = new ArrayList<>();
     System.out.println(
@@ -224,6 +223,4 @@ public class TaskOperation implements Table {
     }
     return categoryNewTask;
   }
-
-
 }

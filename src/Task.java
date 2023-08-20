@@ -8,10 +8,9 @@ public class Task implements Comparable<Task> {
   private String title;
   private String message;
   private Priority priority;
-
   private Date planeDate;
   private final Date createdDate;
-private boolean isDone;
+  private boolean isDone;
 
   public Task(String title, String message, Category category, Priority priority, Date planeDate,
       Date createdDate, boolean isDone) {
@@ -27,6 +26,7 @@ private boolean isDone;
   public int getCount() {
     return count;
   }
+
   public String getTitle() {
     return title;
   }
@@ -70,9 +70,11 @@ private boolean isDone;
   public boolean isDone() {
     return isDone;
   }
-public void markAsDone(){
+
+  public void markAsDone() {
     this.isDone = true;
-}
+  }
+
   public void setDone(boolean done) {
     isDone = done;
   }
@@ -83,7 +85,7 @@ public void markAsDone(){
 
   @Override
   public String toString() {
-    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'"  + " Категория: '"
+    return "Наименование: '" + title + '\'' + " Описание: '" + message + "\'" + " Категория: '"
         + category + "\'" + " Приоритет: '" + priority + "\'" + " Добавлено "
         + createdDate + "\'" + planeDate;
   }
