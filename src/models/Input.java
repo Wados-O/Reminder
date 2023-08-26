@@ -1,12 +1,18 @@
+package models;
+
+import static view.ColorsSet.PURPLE;
+import static view.ColorsSet.RESET;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale.Category;
 import java.util.Scanner;
 
-public class Input extends ColorsSet {
+public class Input {
 
   private static String ourFile = "res/tasks.csv";
   protected static List<Task> arrayList = new ArrayList<>();

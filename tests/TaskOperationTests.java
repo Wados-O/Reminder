@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import models.Task;
+import models.TaskOperation;
 import org.junit.jupiter.api.Test;
 
 class TaskOperationTests {

@@ -1,5 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
+import models.Input;
+import models.TaskOperation;
+import view.Intro;
+import view.Panel;
 
 public class Menu extends TaskOperation {
 
@@ -10,7 +14,7 @@ public class Menu extends TaskOperation {
    * @throws IOException
    */
   public static void firstMenu(Scanner sc) throws IOException {
-    Intro.speedJump();
+    Intro.clear();
     TaskOperation.printTaskList();
     while (true) {
       System.out.println(Panel.SHOW_FIRST_MENU);
@@ -50,7 +54,7 @@ public class Menu extends TaskOperation {
    */
   public static void sortMenu(Scanner sc) throws IOException {
     while (true) {
-      Intro.speedJump();
+      Intro.clear();
       TaskOperation.printTaskList();
       System.out.println(Panel.SHOW_SORT_MENU);
       System.out.println();

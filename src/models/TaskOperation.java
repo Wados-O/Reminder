@@ -1,15 +1,25 @@
+package models;
+
+import static javax.accessibility.AccessibleRole.FOOTER;
+import static javax.print.attribute.standard.MediaTray.MIDDLE;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import models.Input;
+import models.Task;
+import view.ColorsSet;
+import view.Intro;
+import view.Panel;
 
-public class TaskOperation implements Table {
+public class TaskOperation {
 
   static List<Task> tasks = Input.arrayList;
 
   public static void changeTaskStatus(Scanner sc) {
-    Intro.speedJump();
+    Intro.clear();
     printTaskList();
     System.out.println(
         ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:"
@@ -23,7 +33,7 @@ public class TaskOperation implements Table {
 
     boolean newStatus = (statusChoice == 1);
     tasks.get(indexTask).setDone(newStatus);
-    Intro.speedJump();
+    Intro.clear();
     System.out.println(ColorsSet.YELLOW + "Состояние задачи успешно изменено." + ColorsSet.RESET);
 
     printTaskList();
@@ -40,7 +50,7 @@ public class TaskOperation implements Table {
   }
 
   public static void correctingTask(Scanner sc) {
-    Intro.speedJump();
+    Intro.clear();
     printTaskList();
     System.out.println(
         ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
@@ -134,7 +144,7 @@ public class TaskOperation implements Table {
 
     Task task = tasks.get(index - 1);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
-    System.out.println(HEADER);
+    System.out.println(Table.HEADER);
 
     String title = truncateString(task.getTitle(), 20);
     String message = truncateString(task.getMessage(), 58);
@@ -153,7 +163,7 @@ public class TaskOperation implements Table {
    * this method use to print all tasks in task list
    */
   public static void printTaskList() {
-    System.out.println(HEADER);
+    System.out.println(Table.HEADER);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
 
     for (int i = 0; i < tasks.size(); i++) {

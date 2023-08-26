@@ -1,3 +1,5 @@
+import view.ColorsSet;
+
 public enum Priority {
 
   HIGH(1, ColorsSet.RED + "ВЫСОКИЙ " + ColorsSet.RESET),

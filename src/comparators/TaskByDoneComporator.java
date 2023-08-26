@@ -1,4 +1,7 @@
+package comparators;
+
 import java.util.Comparator;
+import models.Task;
 
 public class TaskByDoneComporator implements Comparator<Task> {
 
