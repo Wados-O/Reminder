@@ -16,7 +16,7 @@ import view.Panel;
 
 public class TaskOperation {
 
-  static List<Task> tasks = Input.arrayList;
+   List<Task> tasks = Input.arrayList;
 
   public static void changeTaskStatus(Scanner sc) {
     Intro.clear();

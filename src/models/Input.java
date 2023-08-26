@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 public class Input {
 
-  private static String ourFile = "res/tasks.csv";
-  protected static List<Task> arrayList = new ArrayList<>();
+  private String ourFile = "res/tasks.csv";
+  protected List<Task> arrayList = new ArrayList<>();
   private static final String SEP = ";;;";
 
   public static void readTaskFromFile() throws IOException {
