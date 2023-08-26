@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
+import models.Input;
+import view.AnimationOnProject;
 
 public class Runner extends Menu {
 

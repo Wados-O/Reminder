@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import models.Task;
 
 public class TaskByPlaneDateComparator implements Comparator<Task> {
 

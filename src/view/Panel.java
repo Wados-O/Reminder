@@ -1,3 +1,5 @@
+package view;
+
 public class Panel extends ColorsSet {
 
   public static final String EXIT_BUTTON = ""

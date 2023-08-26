@@ -1,3 +1,5 @@
+package view;
+
 public class AnimationOnProject {
 
   /**
@@ -8,12 +10,12 @@ public class AnimationOnProject {
     Intro.logoPresents();
     Intro.emptyPlace();
     Intro.stringLoading();
-    Intro.speedJump();
+    Intro.clear();
     Intro.logoProject();
     Intro.emptyPlace();
     Intro.stringDownload();
     Suspend.longSuspend();
-    Intro.speedJump();
-    Intro.speedJump();
+    Intro.clear();
+    Intro.clear();
   }
 }

@@ -1,4 +1,6 @@
 import java.util.List;
+import models.Input;
+import models.Task;
 
 public class SortsSource {
 
@@ -12,7 +14,7 @@ public class SortsSource {
   }
 
   /**
-   * This method must be used for sort on Priority
+   * This method must be used for sort on priority
    */
   public static void sortOnPriority() {
     tasks.sort(new TaskByPriorityComparator());
