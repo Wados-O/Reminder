@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
 import models.Input;
-import models.TaskOperation;
 import view.Intro;
 import view.Panel;
 

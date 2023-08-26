@@ -1,5 +1,3 @@
-package models;
-
 import static javax.accessibility.AccessibleRole.FOOTER;
 import static javax.print.attribute.standard.MediaTray.MIDDLE;
 

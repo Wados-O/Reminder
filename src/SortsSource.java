@@ -1,11 +1,6 @@
-import comparators.TaskByCategoryComparator;
-import comparators.TaskByDoneComporator;
-import comparators.TaskByPlaneDateComparator;
-import comparators.TaskByPriorityComparator;
 import java.util.List;
 import models.Input;
 import models.Task;
-import models.TaskOperation;
 
 public class SortsSource {
 
@@ -19,7 +14,7 @@ public class SortsSource {
   }
 
   /**
-   * This method must be used for sort on Priority
+   * This method must be used for sort on priority
    */
   public static void sortOnPriority() {
     tasks.sort(new TaskByPriorityComparator());
