@@ -11,7 +11,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import models.Input;
+import models.Category;
+import models.Priority;
 import models.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,7 +58,7 @@ public class TestInput {
     Date createdDate = DataConvert.parseDate(String.valueOf(LocalDate.now()));
     Boolean isDone = false;
 
-    Task task  = new Task(title, message,category, priority,planeDate, createdDate, isDone);
+    Task task  = new Task(title, message, category, priority,planeDate, createdDate, isDone);
     testTasks.add(task);
 
     for (Task task1 : testTasks) {

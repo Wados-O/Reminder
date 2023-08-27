@@ -1,10 +1,13 @@
+import comparators.TaskByCategoryComparator;
+import comparators.TaskByDoneComporator;
+import comparators.TaskByPlaneDateComparator;
+import comparators.TaskByPriorityComparator;
 import java.util.List;
-import models.Input;
 import models.Task;
 
 public class SortsSource {
 
-  static List<Task> tasks = Input.arrayList;
+  static List<Task> tasks = Input.getArrayList();
 
   /**
    * This method must use for sort on Category

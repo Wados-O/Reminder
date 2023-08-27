@@ -1,5 +1,3 @@
-package models;
-
 import static view.ColorsSet.PURPLE;
 import static view.ColorsSet.RESET;
 
@@ -9,13 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale.Category;
 import java.util.Scanner;
+import models.Category;
+import models.Priority;
+import models.Task;
 
 public class Input {
 
-  private String ourFile = "res/tasks.csv";
-  protected List<Task> arrayList = new ArrayList<>();
+  private static String ourFile = "res/tasks.csv";
+  private static List<Task> arrayList = new ArrayList<>();
   private static final String SEP = ";;;";
 
   public static void readTaskFromFile() throws IOException {

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import models.Category;
+import models.Priority;
 import models.Task;
 import org.junit.jupiter.api.Test;
 

@@ -1,20 +1,19 @@
-import static javax.accessibility.AccessibleRole.FOOTER;
-import static javax.print.attribute.standard.MediaTray.MIDDLE;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import models.Input;
+import models.Category;
+import models.Priority;
 import models.Task;
 import view.ColorsSet;
 import view.Intro;
 import view.Panel;
+import view.Table;
 
 public class TaskOperation {
 
-   List<Task> tasks = Input.arrayList;
+  static List<Task> tasks = Input.getArrayList();
 
   public static void changeTaskStatus(Scanner sc) {
     Intro.clear();
@@ -142,7 +141,7 @@ public class TaskOperation {
 
     Task task = tasks.get(index - 1);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
-    System.out.println(Table.HEADER);
+    System.out.println();
 
     String title = truncateString(task.getTitle(), 20);
     String message = truncateString(task.getMessage(), 58);
@@ -153,7 +152,7 @@ public class TaskOperation {
     String status = task.isDone() ? "      ✔️       " : "      ❌       ";
 
     System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
-    System.out.println(FOOTER);
+    System.out.println(Table.FOOTER);
     System.out.println();
   }
 
@@ -176,10 +175,10 @@ public class TaskOperation {
       String status = task.isDone() ? "      ✔️       " : "      ❌       ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasks.size() - 1) {
-        System.out.println(MIDDLE);
+        System.out.println(Table.MIDDLE);
       }
     }
-    System.out.println(FOOTER);
+    System.out.println(Table.FOOTER);
     System.out.println("  ");
   }
 

@@ -1,10 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
-import models.Input;
 import view.Intro;
 import view.Panel;
 
-public class Menu extends TaskOperation {
+public class Menu {
 
   /**
    * FistMenu has choice what need to do
@@ -23,19 +22,19 @@ public class Menu extends TaskOperation {
       int choice = Input.readIntLimited(1, 6);
       switch (choice) {
         case 1:
-          changeTaskStatus(sc);
+          TaskOperation.changeTaskStatus(sc);
           break;
         case 2:
-          addTask(sc);
+          TaskOperation.addTask(sc);
           break;
         case 3:
           sortMenu(sc);
           break;
         case 4:
-          correctingTask(sc);
+          TaskOperation.correctingTask(sc);
           break;
         case 5:
-          remove(sc);
+          TaskOperation.remove(sc);
           break;
         case 6:
           System.out.println("До свидания!!!");
