@@ -215,11 +215,16 @@ public class TaskOperation {
         + ColorsSet.RESET + "      ");
     list.add(ColorsSet.WHITE_BOLD_BRIGHT + ColorsSet.PURPLE_BACKGROUND + "   -  НЕТ    "
         + ColorsSet.RESET + "      ");
+
+    printListChoiceYesOrNo(list);
+    System.out.println();
+  }
+
+  public static void printListChoiceYesOrNo(List<String> list) {
     for (int i = 0; i < list.size(); i++) {
       int index = i + 1;
       System.out.println(index + ". " + list.get(i));
     }
-    System.out.println();
   }
 
   public static Priority assigningValuePriority(Scanner sc) {
