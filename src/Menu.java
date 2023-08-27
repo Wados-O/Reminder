@@ -23,22 +23,25 @@ public class Menu {
       switch (choice) {
         case 1:
           TaskOperation.changeTaskStatus(sc);
+          Input.closeFileWithSaving();
           break;
         case 2:
           TaskOperation.addTask(sc);
+          Input.closeFileWithSaving();
           break;
         case 3:
           sortMenu(sc);
           break;
         case 4:
           TaskOperation.correctingTask(sc);
+          Input.closeFileWithSaving();
           break;
         case 5:
           TaskOperation.remove(sc);
+          Input.closeFileWithSaving();
           break;
         case 6:
           System.out.println("До свидания!!!");
-          Input.closeFileWithSaving();
           System.exit(0);
       }
     }
@@ -62,22 +65,25 @@ public class Menu {
       switch (choice) {
         case 1:
           SortsSource.sortDate();
+          Input.closeFileWithSaving();
           break;
         case 2:
           SortsSource.sortOnPriority();
+          Input.closeFileWithSaving();
           break;
         case 3:
           SortsSource.sortOnCategory();
+          Input.closeFileWithSaving();
           break;
         case 4:
           SortsSource.sortIsDone();
+          Input.closeFileWithSaving();
           break;
         case 5:
           firstMenu(sc);
           break;
         case 6:
           System.out.println("До свидания!!!");
-          Input.closeFileWithSaving();
           System.exit(0);
       }
     }
