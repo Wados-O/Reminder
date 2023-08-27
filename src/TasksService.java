@@ -7,6 +7,10 @@ import models.Task;
 public class TasksService {
   static List<Task> tasks = Input.getArrayList();
 
+  public int taskIndex(int numberTask) {
+    return numberTask - 1;
+  }
+
   public void changeStatus(int indexTask, int statusChoice) {
     boolean newStatus = (statusChoice == 1);
     tasks.get(indexTask).setDone(newStatus);
@@ -43,5 +47,25 @@ public class TasksService {
 
   public void add(Task task) {
     tasks.add(task);
+  }
+
+  public Category choiceCategory(int choiceForCategory) {
+    Category categoryNewTask = null;
+    for (Category category : Category.values()) {
+      if (category.getNum() == choiceForCategory) {
+        categoryNewTask = category;
+      }
+    }
+    return categoryNewTask;
+  }
+
+  public Priority choicePriority(int choiceForPriority) {
+    Priority priorityNewTask = null;
+    for (Priority priority : Priority.values()) {
+      if (priority.getNum() == choiceForPriority) {
+        priorityNewTask = priority;
+      }
+    }
+    return priorityNewTask;
   }
 }

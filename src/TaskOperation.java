@@ -25,7 +25,7 @@ public class TaskOperation {
             + ColorsSet.RESET);
 
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = taskIndex(numberTask);
+    int indexTask = tasksService.taskIndex(numberTask);
 
     System.out.println("Выберите новое состояние задачи:");
     System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
@@ -39,17 +39,13 @@ public class TaskOperation {
     printTaskList();
   }
 
-  public static int taskIndex(int numberTask) {
-    return numberTask - 1;
-  }
-
   public static void remove(Scanner sc) {
     printTaskList();
 
     System.out.println("Введите номер задачи, которую хотите удалить:");
 
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = taskIndex(numberTask);
+    int indexTask = tasksService.taskIndex(numberTask);
 
     tasksService.removeTask(indexTask);
 
@@ -65,7 +61,7 @@ public class TaskOperation {
         ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = taskIndex(numberTask);
+    int indexTask = tasksService.taskIndex(numberTask);
 
     while (true) {
       System.out.println();
@@ -228,27 +224,20 @@ public class TaskOperation {
   }
 
   public static Priority assigningValuePriority(Scanner sc) {
-
     System.out.println(Panel.SHOW_PRIORITY_CHOICE);
+
     int choiceForPriority = Input.readIntLimited(1, 3);
-    Priority priorityNewTask = null;
-    for (Priority priority : Priority.values()) {
-      if (priority.getNum() == choiceForPriority) {
-        priorityNewTask = priority;
-      }
-    }
+
+    Priority priorityNewTask = tasksService.choicePriority(choiceForPriority);
     return priorityNewTask;
   }
 
   public static Category assigningValueCategory(Scanner sc) {
     System.out.println(Panel.SHOW_CATEGORY_MENU);
+
     int choiceFromCategory = Input.readIntLimited(1, 5);
-    Category categoryNewTask = null;
-    for (Category category : Category.values()) {
-      if (category.getNum() == choiceFromCategory) {
-        categoryNewTask = category;
-      }
-    }
+
+    Category categoryNewTask = tasksService.choiceCategory(choiceFromCategory);
     return categoryNewTask;
   }
 }
