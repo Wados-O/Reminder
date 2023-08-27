@@ -125,23 +125,25 @@ public class TaskOperation {
   }
 
   public static void addTask(Scanner sc) throws IOException {
-
     Priority priorityNewTask = assigningValuePriority(sc);
+
     Category categoryNewTask = assigningValueCategory(sc);
 
     System.out.print("Введите название новой задачи: ");
     String name = Input.readStringLimited(3, 22);
+
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
 
     Date createdDate = new Date();
-
     Date planeDate = DataConvert.choicePlaneDate(sc);
 
     boolean isDone = false;
+
     Task task = new Task(name, definition, categoryNewTask, priorityNewTask, planeDate, createdDate,
         isDone);
-    tasks.add(task);
+    tasksService.add(task);
+
     printTaskList();
     System.out.println(ColorsSet.CYAN + "Задача добавлена." + ColorsSet.RESET);
   }

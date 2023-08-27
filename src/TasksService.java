@@ -40,4 +40,8 @@ public class TasksService {
     boolean isDone = (statusChoice == 1);
     tasks.get(indexTask).setDone(isDone);
   }
+
+  public void add(Task task) {
+    tasks.add(task);
+  }
 }
