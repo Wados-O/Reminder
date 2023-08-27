@@ -25,7 +25,7 @@ public class TaskOperation {
             + ColorsSet.RESET);
 
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = TaskStatusIndex(numberTask);
+    int indexTask = taskIndex(numberTask);
 
     System.out.println("Выберите новое состояние задачи:");
     System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
@@ -39,16 +39,20 @@ public class TaskOperation {
     printTaskList();
   }
 
-  public static int TaskStatusIndex(int numberTask) {
+  public static int taskIndex(int numberTask) {
     return numberTask - 1;
   }
 
   public static void remove(Scanner sc) {
     printTaskList();
+
     System.out.println("Введите номер задачи, которую хотите удалить:");
+
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = numberTask - 1;
-    tasks.remove(indexTask);
+    int indexTask = taskIndex(numberTask);
+
+    tasksService.removeTask(indexTask);
+
     printTaskList();
     System.out.println();
   }

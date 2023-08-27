@@ -8,4 +8,8 @@ public class TasksService {
     boolean newStatus = (statusChoice == 1);
     tasks.get(indexTask).setDone(newStatus);
   }
+
+  public void removeTask(int indexTask) {
+    tasks.remove(indexTask);
+  }
 }
