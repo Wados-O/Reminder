@@ -14,7 +14,7 @@ import view.Table;
 public class TaskOperation {
 
   static List<Task> tasks = Input.getArrayList();
-  private static TasksService tasksService;
+  private static TasksService tasksService = new TasksService();
 
   public static void changeTaskStatus(Scanner sc) {
     Intro.clear();
@@ -60,18 +60,22 @@ public class TaskOperation {
   public static void correctingTask(Scanner sc) {
     Intro.clear();
     printTaskList();
+
     System.out.println(
         ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = numberTask - 1;
+    int indexTask = taskIndex(numberTask);
 
     while (true) {
       System.out.println();
       printCurrentTask(numberTask);
       System.out.println();
+
       choiceYesOrNo();
+
       int choice = Input.readIntLimited(1, 2);
+
       if (choice == 1) {
         System.out.println(Panel.SHOW_MENU_REFACTOR);
         int number = Input.readIntLimited(1, 6);
@@ -80,24 +84,24 @@ public class TaskOperation {
           case 1:
             System.out.println("Введите новое название задачи:");
             String title = sc.nextLine();
-            tasks.get(indexTask).setTitle(title);
+            tasksService.correctingTitle(indexTask, title);
             break;
           case 2:
             System.out.println("Введите новое описание задачи:");
             String message = sc.nextLine();
-            tasks.get(indexTask).setMessage(message);
+            tasksService.correctingMessage(indexTask, message);
             break;
           case 3:
             Category categoryNewTask = assigningValueCategory(sc);
-            tasks.get(indexTask).setCategory(categoryNewTask);
+            tasksService.correctingCategory(indexTask, categoryNewTask);
             break;
           case 4:
             Priority priorityNewTask = assigningValuePriority(sc);
-            tasks.get(indexTask).setPriority(priorityNewTask);
+            tasksService.correctingPriority(indexTask, priorityNewTask);
             break;
           case 5:
             Date correctingDate = DataConvert.choicePlaneDate(sc);
-            tasks.get(indexTask).setPlaneDate(correctingDate);
+            tasksService.correctingDate(indexTask, correctingDate);
             break;
           case 6:
             System.out.println("Выберите статус задачи:");
@@ -105,8 +109,7 @@ public class TaskOperation {
             System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
             int statusChoice = Input.readIntLimited(1, 2);
 
-            boolean isDone = (statusChoice == 1);
-            tasks.get(indexTask).setDone(isDone);
+            tasksService.correctingStatus(indexTask, statusChoice);
             break;
           default:
             printTaskList();
