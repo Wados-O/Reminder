@@ -14,6 +14,7 @@ public class Menu {
   public static void firstMenu(Scanner sc) throws IOException {
     Intro.clear();
     TaskOperation.printTaskList();
+
     while (true) {
       System.out.println(Panel.SHOW_FIRST_MENU);
       System.out.println();
@@ -57,6 +58,7 @@ public class Menu {
     while (true) {
       Intro.clear();
       TaskOperation.printTaskList();
+
       System.out.println(Panel.SHOW_SORT_MENU);
       System.out.println();
       System.out.println(Panel.EXIT_BUTTON);
