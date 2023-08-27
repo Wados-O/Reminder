@@ -14,26 +14,33 @@ import view.Table;
 public class TaskOperation {
 
   static List<Task> tasks = Input.getArrayList();
+  private static TasksService tasksService;
 
   public static void changeTaskStatus(Scanner sc) {
     Intro.clear();
     printTaskList();
+
     System.out.println(
         ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:"
             + ColorsSet.RESET);
+
     int numberTask = Input.readIntLimited(1, tasks.size());
-    int indexTask = numberTask - 1;
+    int indexTask = TaskStatusIndex(numberTask);
+
     System.out.println("Выберите новое состояние задачи:");
     System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
     System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
     int statusChoice = Input.readIntLimited(1, 2);
 
-    boolean newStatus = (statusChoice == 1);
-    tasks.get(indexTask).setDone(newStatus);
+    tasksService.changeStatus(indexTask, statusChoice);
+
     Intro.clear();
     System.out.println(ColorsSet.YELLOW + "Состояние задачи успешно изменено." + ColorsSet.RESET);
-
     printTaskList();
+  }
+
+  public static int TaskStatusIndex(int numberTask) {
+    return numberTask - 1;
   }
 
   public static void remove(Scanner sc) {
