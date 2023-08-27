@@ -84,22 +84,4 @@ public class TestInput {
 
     assertTrue(testFile.delete());
   }
-
-//  @Test
-//  public void readTaskIncorrectFromFile() {
-//    String title = "title";
-//    String message = "message";
-//    Category category = Category.PERSONAL;
-//    Priority priority = Priority.HIGH;
-//    Date planeDate = DataConvert.parseDate("15/09/2023");
-//    Date createdDate = DataConvert.parseDate(String.valueOf(LocalDate.now()));
-//    Boolean isDone = false;
-//  }
-
-//  @Test
-//  public void closeFileWithSaving() {
-////    FileWriter fileWriter;
-////    String expected = "Title;;; Message;;; WORK;;; MEDIUM;;; 14.09.2023;;; 20.08.2023;;; true";
-//    FileWriter fileWriterMock = mock
-//  }
 }
