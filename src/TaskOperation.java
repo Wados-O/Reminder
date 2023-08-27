@@ -150,7 +150,6 @@ public class TaskOperation {
    * @param index
    */
   public static void printCurrentTask(int index) {
-
     Task task = tasks.get(index - 1);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
     System.out.println();

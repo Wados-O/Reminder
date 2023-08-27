@@ -3,7 +3,7 @@ package comparators;
 import java.util.Comparator;
 import models.Task;
 
-public class TaskByDoneComporator implements Comparator<Task> {
+public class TaskByDoneComparator implements Comparator<Task> {
 
   @Override
   public int compare(Task task1, Task task2) {

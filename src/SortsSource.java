@@ -1,5 +1,5 @@
 import comparators.TaskByCategoryComparator;
-import comparators.TaskByDoneComporator;
+import comparators.TaskByDoneComparator;
 import comparators.TaskByPlaneDateComparator;
 import comparators.TaskByPriorityComparator;
 import java.util.List;
@@ -34,7 +34,7 @@ public class SortsSource {
    * This method must be used for sort on Done Undone At fist are undone tasks and after than done
    */
   public static void sortIsDone() {
-    tasks.sort(new TaskByDoneComporator());
+    tasks.sort(new TaskByDoneComparator());
     TaskOperation.printTaskList();
   }
 }
