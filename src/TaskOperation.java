@@ -24,7 +24,7 @@ public class TaskOperation {
         ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:"
             + ColorsSet.RESET);
 
-    int numberTask = Input.readIntLimited(1, tasks.size());
+    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     System.out.println("Выберите новое состояние задачи:");
@@ -44,7 +44,7 @@ public class TaskOperation {
 
     System.out.println("Введите номер задачи, которую хотите удалить:");
 
-    int numberTask = Input.readIntLimited(1, tasks.size());
+    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     tasksService.removeTask(indexTask);
@@ -60,7 +60,7 @@ public class TaskOperation {
     System.out.println(
         ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
-    int numberTask = Input.readIntLimited(1, tasks.size());
+    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     while (true) {
@@ -175,7 +175,7 @@ public class TaskOperation {
     System.out.println(Table.HEADER);
     String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
 
-    for (int i = 0; i < tasks.size(); i++) {
+    for (int i = 0; i < tasksService.getTasksCount(); i++) {
       int index = i + 1;
       Task task = tasks.get(i);
       String title = truncateString(task.getTitle(), 20);
@@ -186,7 +186,7 @@ public class TaskOperation {
           task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
       String status = task.isDone() ? "      ✔️       " : "      ❌       ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
-      if (i < tasks.size() - 1) {
+      if (i < tasksService.getTasksCount() - 1) {
         System.out.println(Table.MIDDLE);
       }
     }

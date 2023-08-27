@@ -68,4 +68,8 @@ public class TasksService {
     }
     return priorityNewTask;
   }
+
+  public int getTasksCount() {
+    return tasks.size();
+  }
 }
