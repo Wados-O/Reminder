@@ -167,6 +167,31 @@ class TasksServiceTest {
 
   @Test
   void correctingMessage() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    Task task2 = new Task("title2", "message2", Category.HEALTH, Priority.MEDIUM,
+        DataConvert.parseDate("21/12/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), false);
+
+    Task task3 = new Task("title3", "message3", Category.HOME, Priority.LOW,
+        DataConvert.parseDate("14/10/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    tasksService.add(task1);
+    tasksService.add(task2);
+    tasksService.add(task3);
+
+    int indexTask = 2;
+    String message = "changeMessage";
+
+    tasksService.correctingMessage(indexTask, message);
+
+    assertEquals("changeMessage", tasksService.getTasks().get(2).getMessage());
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
   }
 
   @Test
