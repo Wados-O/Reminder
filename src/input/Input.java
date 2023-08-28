@@ -1,3 +1,5 @@
+package input;
+
 import static view.ColorsSet.PURPLE;
 import static view.ColorsSet.RESET;
 
@@ -123,7 +125,7 @@ public class Input {
     Input.ourFile = ourFile;
   }
 
-  public static List<Task> getArrayList() {
+  public static  List<Task> getArrayList() {
     return arrayList;
   }
 }
