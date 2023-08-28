@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import models.Category;
@@ -56,7 +57,7 @@ class TasksServiceTest {
   }
 
   @Test
-  void removeTask() {
+  void removeThreeTask() {
     Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
         DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
         LocalDate.now())), true);
@@ -69,15 +70,48 @@ class TasksServiceTest {
         DataConvert.parseDate("14/10/2023"), DataConvert.parseDate(String.valueOf(
         LocalDate.now())), true);
 
+    System.out.println(tasksService.getTasksCount());
+    System.out.println(tasksService.getTasks().toString());
     tasksService.add(task1);
     tasksService.add(task2);
     tasksService.add(task3);
 
+    System.out.println(tasksService.getTasksCount());
+    System.out.println(tasksService.getTasks().toString());
     int indexTask = 1;
 
     tasksService.removeTask(indexTask);
+    System.out.println(tasksService.getTasksCount());
+
     assertEquals(2, tasksService.getTasksCount());
     assertEquals(task3, tasksService.getTasks().get(1));
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
+  }
+
+  @Test
+  void removeTwoTask() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    Task task2 = new Task("title2", "message2", Category.HEALTH, Priority.MEDIUM,
+        DataConvert.parseDate("21/12/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), false);
+
+    tasksService.add(task1);
+    tasksService.add(task2);
+
+    int indexTask = 0;
+
+    tasksService.removeTask(indexTask);
+
+    assertEquals(1, tasksService.getTasksCount());
+    assertEquals(task2, tasksService.getTasks().get(0));
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
   }
 
   @Test
