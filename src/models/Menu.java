@@ -1,5 +1,6 @@
 package models;
 
+import input.InputConsole;
 import input.InputFile;
 import java.io.IOException;
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class Menu {
       System.out.println();
       System.out.println(Panel.EXIT_BUTTON);
 
-      int choice = InputFile.readIntLimited(1, 6);
+      int choice = InputConsole.readIntLimited(1, 6);
       switch (choice) {
         case 1:
           TaskOperation.changeTaskStatus(sc);
@@ -68,7 +69,7 @@ public class Menu {
       System.out.println();
       System.out.println(Panel.EXIT_BUTTON);
 
-      int choice = InputFile.readIntLimited(1, 6);
+      int choice = InputConsole.readIntLimited(1, 6);
       switch (choice) {
         case 1:
           SortsSource.sortDate();
