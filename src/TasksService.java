@@ -72,4 +72,8 @@ public class TasksService {
   public int getTasksCount() {
     return tasks.size();
   }
+
+  public List<Task> getTasks() {
+    return tasks;
+  }
 }
