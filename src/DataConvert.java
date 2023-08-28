@@ -68,18 +68,4 @@ public class DataConvert {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     return dateFormat.format(date);
   }
-
-  public static boolean checkFormatDate(String dateStr) {
-    boolean result = false;
-    if (dateStr != null) {
-      int day = Integer.parseInt(dateStr.substring(0, 2));
-      int month = Integer.parseInt(dateStr.substring(3, 5));
-      if (month >= 1 && month <= 12) {
-        if (day >= 1 && day <= 31) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
 }

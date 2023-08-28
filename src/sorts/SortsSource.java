@@ -1,3 +1,5 @@
+package sorts;
+
 import comparators.TaskByCategoryComparator;
 import comparators.TaskByDoneComparator;
 import comparators.TaskByPlaneDateComparator;
