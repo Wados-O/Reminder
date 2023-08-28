@@ -1,6 +1,6 @@
 package models;
 
-import input.Input;
+import input.InputFile;
 import java.io.IOException;
 import java.util.Scanner;
 import sorts.SortsSource;
@@ -25,26 +25,26 @@ public class Menu {
       System.out.println();
       System.out.println(Panel.EXIT_BUTTON);
 
-      int choice = Input.readIntLimited(1, 6);
+      int choice = InputFile.readIntLimited(1, 6);
       switch (choice) {
         case 1:
           TaskOperation.changeTaskStatus(sc);
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 2:
           TaskOperation.addTask(sc);
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 3:
           sortMenu(sc);
           break;
         case 4:
           TaskOperation.correctingTask(sc);
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 5:
           TaskOperation.remove(sc);
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 6:
           System.out.println("До свидания!!!");
@@ -68,23 +68,23 @@ public class Menu {
       System.out.println();
       System.out.println(Panel.EXIT_BUTTON);
 
-      int choice = Input.readIntLimited(1, 6);
+      int choice = InputFile.readIntLimited(1, 6);
       switch (choice) {
         case 1:
           SortsSource.sortDate();
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 2:
           SortsSource.sortOnPriority();
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 3:
           SortsSource.sortOnCategory();
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 4:
           SortsSource.sortIsDone();
-          Input.closeFileWithSaving();
+          InputFile.closeFileWithSaving();
           break;
         case 5:
           firstMenu(sc);

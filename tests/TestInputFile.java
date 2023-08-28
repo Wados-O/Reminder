@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import input.DataConvert;
-import input.Input;
+import input.InputFile;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import models.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestInput {
+public class TestInputFile {
 
   private static String file = "testFile.txt";
   private List<Task> testTasks;
@@ -33,8 +33,8 @@ public class TestInput {
   @Test
   public void readTaskFromEmptyFile() throws IOException {
     String input = "";
-    Input.setOurFile(input);
-    Input.readTaskFromFile();
+    InputFile.setOurFile(input);
+    InputFile.readTaskFromFile();
     assertTrue(testTasks.isEmpty());
   }
 
@@ -72,8 +72,8 @@ public class TestInput {
     writer.flush();
     writer.close();
 
-    Input.setOurFile(file);
-    Input.readTaskFromFile();
+    InputFile.setOurFile(file);
+    InputFile.readTaskFromFile();
 
     assertFalse(testTasks.isEmpty());
     assertEquals("title", task.getTitle());

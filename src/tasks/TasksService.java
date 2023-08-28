@@ -1,6 +1,6 @@
 package tasks;
 
-import input.Input;
+import input.InputFile;
 import java.util.Date;
 import java.util.List;
 import models.Category;
@@ -8,7 +8,7 @@ import models.Priority;
 import models.Task;
 
 public class TasksService {
-  static List<Task> tasks = Input.getArrayList();
+  static List<Task> tasks = InputFile.getArrayList();
 
   public int taskIndex(int numberTask) {
     return numberTask - 1;

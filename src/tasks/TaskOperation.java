@@ -1,7 +1,7 @@
 package tasks;
 
 import input.DataConvert;
-import input.Input;
+import input.InputFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +17,7 @@ import view.Table;
 
 public class TaskOperation {
 
-  static List<Task> tasks = Input.getArrayList();
+  static List<Task> tasks = InputFile.getArrayList();
   private static TasksService tasksService = new TasksService();
 
   public static void changeTaskStatus(Scanner sc) {
@@ -28,13 +28,13 @@ public class TaskOperation {
         ColorsSet.CYAN + "Введите номер задачи, состояние которой вы хотите изменить:"
             + ColorsSet.RESET);
 
-    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
+    int numberTask = InputFile.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     System.out.println("Выберите новое состояние задачи:");
     System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
     System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
-    int statusChoice = Input.readIntLimited(1, 2);
+    int statusChoice = InputFile.readIntLimited(1, 2);
 
     tasksService.changeStatus(indexTask, statusChoice);
 
@@ -48,7 +48,7 @@ public class TaskOperation {
 
     System.out.println("Введите номер задачи, которую хотите удалить:");
 
-    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
+    int numberTask = InputFile.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     tasksService.removeTask(indexTask);
@@ -64,7 +64,7 @@ public class TaskOperation {
     System.out.println(
         ColorsSet.GREEN + "Введите номер задачи, которую хотите изменить:" + ColorsSet.RESET);
 
-    int numberTask = Input.readIntLimited(1, tasksService.getTasksCount());
+    int numberTask = InputFile.readIntLimited(1, tasksService.getTasksCount());
     int indexTask = tasksService.taskIndex(numberTask);
 
     while (true) {
@@ -74,11 +74,11 @@ public class TaskOperation {
 
       choiceYesOrNo();
 
-      int choice = Input.readIntLimited(1, 2);
+      int choice = InputFile.readIntLimited(1, 2);
 
       if (choice == 1) {
         System.out.println(Panel.SHOW_MENU_REFACTOR);
-        int number = Input.readIntLimited(1, 6);
+        int number = InputFile.readIntLimited(1, 6);
 
         switch (number) {
           case 1:
@@ -107,7 +107,7 @@ public class TaskOperation {
             System.out.println("Выберите статус задачи:");
             System.out.println(ColorsSet.GREEN + "1. Выполнена" + ColorsSet.RESET);
             System.out.println(ColorsSet.RED + "2. Не выполнена" + ColorsSet.RESET);
-            int statusChoice = Input.readIntLimited(1, 2);
+            int statusChoice = InputFile.readIntLimited(1, 2);
 
             tasksService.correctingStatus(indexTask, statusChoice);
             break;
@@ -130,7 +130,7 @@ public class TaskOperation {
     Category categoryNewTask = assigningValueCategory(sc);
 
     System.out.print("Введите название новой задачи: ");
-    String name = Input.readStringLimited(3, 22);
+    String name = InputFile.readStringLimited(3, 22);
 
     System.out.print("Введите краткое содержание задачи: ");
     String definition = sc.nextLine();
@@ -229,7 +229,7 @@ public class TaskOperation {
   public static Priority assigningValuePriority(Scanner sc) {
     System.out.println(Panel.SHOW_PRIORITY_CHOICE);
 
-    int choiceForPriority = Input.readIntLimited(1, 3);
+    int choiceForPriority = InputFile.readIntLimited(1, 3);
 
     Priority priorityNewTask = tasksService.choicePriority(choiceForPriority);
     return priorityNewTask;
@@ -238,7 +238,7 @@ public class TaskOperation {
   public static Category assigningValueCategory(Scanner sc) {
     System.out.println(Panel.SHOW_CATEGORY_MENU);
 
-    int choiceFromCategory = Input.readIntLimited(1, 5);
+    int choiceFromCategory = InputFile.readIntLimited(1, 5);
 
     Category categoryNewTask = tasksService.choiceCategory(choiceFromCategory);
     return categoryNewTask;

@@ -14,7 +14,7 @@ import models.Category;
 import models.Priority;
 import models.Task;
 
-public class Input {
+public class InputFile {
 
   private static String ourFile = "res/tasks.csv";
   private static List<Task> arrayList = new ArrayList<>();
@@ -122,7 +122,7 @@ public class Input {
   }
 
   public static void setOurFile(String ourFile) {
-    Input.ourFile = ourFile;
+    InputFile.ourFile = ourFile;
   }
 
   public static  List<Task> getArrayList() {
