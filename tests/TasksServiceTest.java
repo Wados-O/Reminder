@@ -139,7 +139,43 @@ class TasksServiceTest {
   }
 
   @Test
-  void add() {
+  void addTwoTasks() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    Task task2 = new Task("title2", "message2", Category.HEALTH, Priority.MEDIUM,
+        DataConvert.parseDate("21/12/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), false);
+
+    tasksService.add(task1);
+    tasksService.add(task2);
+
+    assertEquals(2, tasksService.getTasksCount());
+    assertEquals(task2, tasksService.getTasks().get(1));
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
+  }
+
+  @Test
+  void addOneTasks() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    tasksService.add(task1);
+
+    assertEquals(1, tasksService.getTasksCount());
+    assertEquals(task1, tasksService.getTasks().get(0));
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
+  }
+
+  @Test
+  void addZeroTasks() {
+    assertTrue(tasksService.getTasks().isEmpty());
   }
 
   @Test
