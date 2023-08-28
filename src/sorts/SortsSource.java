@@ -1,13 +1,18 @@
 package sorts;
 
+
+
 import comparators.TaskByCategoryComparator;
 import comparators.TaskByDoneComparator;
 import comparators.TaskByPlaneDateComparator;
 import comparators.TaskByPriorityComparator;
+import input.Input;
 import java.util.List;
 import models.Task;
+import tasks.*;
 
 public class SortsSource {
+
 
   static List<Task> tasks = Input.getArrayList();
 
