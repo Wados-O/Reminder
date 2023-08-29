@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import input.DataConvert;
@@ -13,7 +14,6 @@ import tasks.TasksService;
 class TasksServiceTest {
 
   private TasksService tasksService;
-//  static List<Task> taskList = List.copyOf(Input.getArrayList());
 
   @BeforeEach
   public void setUp() {
@@ -258,10 +258,52 @@ class TasksServiceTest {
 
   @Test
   void correctingDate() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    Task task2 = new Task("title2", "message2", Category.HEALTH, Priority.MEDIUM,
+        DataConvert.parseDate("21/12/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), false);
+
+    Task task3 = new Task("title3", "message3", Category.HOME, Priority.LOW,
+        DataConvert.parseDate("14/10/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    tasksService.add(task1);
+    tasksService.add(task2);
+    tasksService.add(task3);
+
+    int indexTask = 0;
+    DataConvert.parseDate("16/10/2023");
   }
 
   @Test
   void correctingStatus() {
+    Task task1 = new Task("title", "message", Category.PERSONAL, Priority.HIGH,
+        DataConvert.parseDate("15/09/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    Task task2 = new Task("title2", "message2", Category.HEALTH, Priority.MEDIUM,
+        DataConvert.parseDate("21/12/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), false);
+
+    Task task3 = new Task("title3", "message3", Category.HOME, Priority.LOW,
+        DataConvert.parseDate("14/10/2023"), DataConvert.parseDate(String.valueOf(
+        LocalDate.now())), true);
+
+    tasksService.add(task1);
+    tasksService.add(task2);
+    tasksService.add(task3);
+
+    int indexTask = 1;
+    int choiceStatus = 2;
+    tasksService.correctingStatus(indexTask, choiceStatus);
+
+    assertFalse(tasksService.getTasks().get(1).isDone());
+
+    tasksService.getTasks().clear();
+    assertTrue(tasksService.getTasks().isEmpty());
   }
 
   @Test
