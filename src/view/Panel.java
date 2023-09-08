@@ -6,12 +6,12 @@ public class Panel extends ColorsSet {
       + GREEN + "СОХРАНИТЬ И ВЫЙТИ:    "
       + GREEN_BACKGROUND + WHITE_BOLD_BRIGHT + "  6 - EXIT   " + RESET;
   public static final String SHOW_FIRST_MENU = ""
-      + YELLOW + "ОСНОВНОЕ МЕНЮ:     "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  1 - ИЗМЕНИТЬ СОСТОЯНИЯ " + RESET + "      "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  2 -  ДОБАВИТЬ  ЗАДАЧУ  " + RESET + "      "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  3 -  МЕНЮ   СОРТИРОВКИ " + RESET + "      "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  4 -  ИЗМЕНИТЬ   ЗАДАЧУ " + RESET + "      "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  5 -  УДАЛИТЬ  ЗАДАЧУ   " + RESET + "      ";
+      + YELLOW + "ОСНОВНОЕ МЕНЮ:  "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 1 - ИЗМЕНИТЬ СОСТОЯНИЯ " + RESET + "   "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 2 -  ДОБАВИТЬ  ЗАДАЧУ  " + RESET + "   "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 3 -  МЕНЮ   СОРТИРОВКИ " + RESET + "   "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 4 -  ИЗМЕНИТЬ   ЗАДАЧУ " + RESET + "   "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 5 -  УДАЛИТЬ  ЗАДАЧУ   " + RESET + "   ";
   public static final String SHOW_CATEGORY_MENU = ""
       + YELLOW + "   ВЫБИРЕТЕ КАТЕГОРИЮ:       "
       + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "   1  -   ДОМ       " + RESET + "          "
