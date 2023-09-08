@@ -13,11 +13,11 @@ public class Panel extends ColorsSet {
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 4 -  ИЗМЕНИТЬ   ЗАДАЧУ " + RESET + "   "
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 5 -  УДАЛИТЬ  ЗАДАЧУ   " + RESET + "   ";
   public static final String SHOW_CATEGORY_MENU = ""
-      + YELLOW + "   ВЫБИРЕТЕ КАТЕГОРИЮ:       "
-      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "   1  -   ДОМ       " + RESET + "          "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   2  -  РАБОТА     " + RESET + "          "
-      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "   3  -  ПОКУПКИ    " + RESET + "          "
-      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + "   4  -  ЛИЧНОЕ     " + RESET + "          "
+      + YELLOW + "ВЫБИРЕТЕ КАТЕГОРИЮ:  "
+      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "   1  -   ДОМ       " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   2  -  РАБОТА     " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "   3  -  ПОКУПКИ    " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + "   4  -  ЛИЧНОЕ     " + RESET + "      "
       + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + "   5  - ЗДОРОВЬЕ    " + RESET + "     ";
   public static final String SHOW_PRIORITY_CHOICE = " "
       + YELLOW + "УКАЖИТЕ ПРИОРИТЕТ ЗАДАЧИ:     " + RESET
