@@ -1,5 +1,7 @@
 package tasks;
 
+import static view.Table.HEADER;
+
 import input.DataConvert;
 import input.InputConsole;
 import input.InputFile;
@@ -156,8 +158,8 @@ public class TaskOperation {
    */
   public static void printCurrentTask(int index) {
     Task task = tasks.get(index - 1);
-    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
-    System.out.println();
+    System.out.println(HEADER);
+    String format =  "│%-4s│%-20s│%-56s│%-19s│%-26s│%-16s│%-3s│%n";
 
     String title = truncateString(task.getTitle(), 20);
     String message = truncateString(task.getMessage(), 58);
@@ -165,7 +167,7 @@ public class TaskOperation {
     String priority = truncateString(task.getPriority().getPriority(), 24);
     String dateString =
         task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-    String status = task.isDone() ? "      ✔️       " : "      ❌       ";
+    String status = task.isDone() ? "    ✔️    " : "    ❌    ";
 
     System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
     System.out.println(Table.FOOTER);
@@ -176,8 +178,8 @@ public class TaskOperation {
    * this method use to print all tasks in task list
    */
   public static void printTaskList() {
-    System.out.println(Table.HEADER);
-    String format = "│%6s│%-20s│%-62s│%-21s│%-31s│%-18s│%-7s│%n";
+    System.out.println(HEADER);
+    String format = "│%-4s│%-20s│%-56s│%-19s│%-26s│%-16s│%-3s│%n";
 
     for (int i = 0; i < tasksService.getTasksCount(); i++) {
       int index = i + 1;
@@ -188,7 +190,7 @@ public class TaskOperation {
       String priority = truncateString(task.getPriority().getPriority(), 24);
       String dateString =
           task.getPlaneDate() != null ? DataConvert.formatDate(task.getPlaneDate()) : "Без даты";
-      String status = task.isDone() ? "      ✔️       " : "      ❌       ";
+      String status = task.isDone() ? "    ✔️    " : "    ❌    ";
       System.out.printf(format, index, title, message, categoryName, priority, dateString, status);
       if (i < tasksService.getTasksCount() - 1) {
         System.out.println(Table.MIDDLE);
