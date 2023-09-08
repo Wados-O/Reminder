@@ -25,21 +25,21 @@ public class Panel extends ColorsSet {
       + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   2 - СРЕДНИЙ    " + RESET + "      "
       + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "   3 - ОБЫЧНЫЙ    " + RESET + "      ";
   public static final String SHOW_SORT_MENU = ""
-      + PURPLE + " МЕНЮ СОРТИРОВКИ:      " + RESET
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   1 -   ПО  ДАТЕ     " + RESET + "         "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   2 - ПО ПРИОРИТЕТУ  " + RESET + "         "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   3 - ПО КАТЕГОРИЯМ  " + RESET + "         "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   4 -  ПО СТАТУСУ    " + RESET + "         "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "   5 - ОСНОВНОЕ МЕНЮ  " + RESET + "         ";
+      + PURPLE + " МЕНЮ СОРТИРОВКИ: " + RESET
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  1 -   ПО  ДАТЕ     " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  2 - ПО ПРИОРИТЕТУ  " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  3 - ПО КАТЕГОРИЯМ  " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  4 -  ПО СТАТУСУ    " + RESET + "      "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  5 - ОСНОВНОЕ МЕНЮ  " + RESET + "      ";
 
   public static final String SHOW_MENU_REFACTOR = " "
-      + BLACK_BOLD + WHITE_BACKGROUND + "  ЧТО ВЫ ХОТИТЕ ИЗМЕНИТЬ?        " + RESET
-      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "  1 - НАЗВАНИЯ  " + RESET + "        "
-      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + "  2 - ОПИСАНИЯ  " + RESET + "        "
-      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + "  3 - КАТИГОРИЮ " + RESET + "      "
-      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + "  4 - ПРИОРИТЕТ " + RESET + "       "
-      + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND + " 5 - ДАТУ ИСПОЛНЕНИЯ " + RESET + "     "
-      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + "  6 -  СТАТУС   " + RESET + "        ";
+      + BLACK_BOLD + WHITE_BACKGROUND + "  ЧТО ВЫ ХОТИТЕ ИЗМЕНИТЬ?     " + RESET
+      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + " 1 - НАЗВАНИЯ  " + RESET +  "    "
+      + WHITE_BOLD_BRIGHT + YELLOW_BACKGROUND + " 2 - ОПИСАНИЯ  " + RESET + "    "
+      + WHITE_BOLD_BRIGHT + PURPLE_BACKGROUND + " 3 - КАТИГОРИЮ " + RESET + "    "
+      + WHITE_BOLD_BRIGHT + CYAN_BACKGROUND + " 4 - ПРИОРИТЕТ " + RESET +   "    "
+      + WHITE_BOLD_BRIGHT + BLUE_BACKGROUND +" 5 - ДАТУ ИСПОЛНЕНИЯ "+RESET + "    "
+      + WHITE_BOLD_BRIGHT + GREEN_BACKGROUND + " 6 -  СТАТУС   " + RESET;
   public static final String SHOW_CHOICE_YES_NO = " "
       + BLACK_BOLD + WHITE_BACKGROUND + "      ПРОДОЛЖИТЬ ИЗМЕНЕНИЯ ?       " + RESET
       + "           "
