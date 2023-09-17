@@ -1,4 +1,7 @@
-package view;
+package animation;
+
+import animation.Suspend;
+import view.ColorsSet;
 
 public class Intro extends ColorsSet {
 
