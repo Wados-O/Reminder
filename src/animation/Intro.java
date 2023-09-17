@@ -11,6 +11,7 @@ public class Intro extends ColorsSet {
    * created by author Vadim Mejinschii
    */
   public static void logoTeam() {
+    Suspend.secondSuspend();
   System.out.println("   ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮");
   System.out.println("   │                                                                                                                                       │");
   Suspend.thirdSuspend();
@@ -54,6 +55,7 @@ public class Intro extends ColorsSet {
 
   public static void logoPresents() {
     Suspend.forthSuspend();
+    Suspend.secondSuspend();
     System.out.println( ColorsSet.YELLOW + "                       oooooooooo  oooooooooo   ooooooooooo   oooooooo8  ooooooooooo  oooo   oooo  ooooooooooo   oooooooo8  " + ColorsSet.RESET );
     Suspend.forthSuspend();
     System.out.println( ColorsSet.YELLOW + "                        888    888  888    888   888    88   888          888    88    8888o  88   88  888  88  888         " + ColorsSet.RESET );
@@ -66,6 +68,7 @@ public class Intro extends ColorsSet {
   }
 
   public static void logoProject() {
+    Suspend.secondSuspend();
     Suspend.secondSuspend();
     System.out.println("        " + ColorsSet.BLUE +"             ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄    ▄       ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ " + ColorsSet.RESET + "           ");
     Suspend.secondSuspend();
@@ -107,7 +110,7 @@ public class Intro extends ColorsSet {
 
   public static void stringLoading() {
     System.out.print(ColorsSet.RED_BACKGROUND +"LOADING");
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
       Suspend.secondSuspend();
       System.out.print(".");
     }
@@ -116,7 +119,7 @@ public class Intro extends ColorsSet {
 
   public static void stringDownload() {
     System.out.print(ColorsSet.RED_BACKGROUND + "DOWNLOAD SYSTEM FILES ");
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 6; i++) {
       Suspend.secondSuspend();
       System.out.print(".");
     }
