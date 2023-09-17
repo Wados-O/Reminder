@@ -5,7 +5,7 @@ import input.InputFile;
 import java.io.IOException;
 import java.util.Scanner;
 import sorts.SortsSource;
-import view.Intro;
+import animation.Intro;
 import view.Panel;
 import tasks.*;
 

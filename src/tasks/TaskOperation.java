@@ -14,7 +14,7 @@ import models.Category;
 import models.Priority;
 import models.Task;
 import view.ColorsSet;
-import view.Intro;
+import animation.Intro;
 import view.Panel;
 import view.Table;
 
