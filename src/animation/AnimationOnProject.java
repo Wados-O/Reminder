@@ -1,4 +1,4 @@
-package view;
+package animation;
 
 public class AnimationOnProject {
 
